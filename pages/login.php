@@ -2,14 +2,13 @@
 include_once '../includes/header.php';
 include_once '../includes/footer.php';
 if (!empty($_POST)) {
-    var_dump($_POST);
+
 
     $mail = $_POST['mail'];
     $sql = "SELECT email, password FROM `users` WHERE email = '$mail'";
     $statement = $connection->query($sql);
     $result = $statement->fetch();
     $hash = $result;
-var_dump(password_verify($_POST['password'], $hash['password']));
     if (password_verify($_POST['password'], $hash['password'])) {
         echo "vous êtes connecté";
     } else {

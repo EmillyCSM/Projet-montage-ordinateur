@@ -2,7 +2,7 @@
 include_once '../includes/header.php';
 include_once '../includes/footer.php';
 
-var_dump($_POST);
+
 
 if (!empty($_POST)) {
   $sql = "INSERT INTO `users`(`isConceptor`, `name`, `email`, `password`) VALUES (:isConceptor,:name, :email, :password)";
