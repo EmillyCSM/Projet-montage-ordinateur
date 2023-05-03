@@ -1,3 +1,14 @@
 #link_sign_in{
     color: black;
 }
+footer{
+position: fixed;
+bottom: 0;
+width: 100%;
+height: 50px;
+box-sizing: border-box;
+background: rgba(33, 34, 33, 0.2);
+display: flex;
+justify-content: center;
+align-items: center; 
+}

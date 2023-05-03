@@ -26,7 +26,7 @@ if (!empty($_POST)) {
     
 </div>
 <button type="submit" class="btn btn-dark m-auto w-25">Valider</button>
-<a id="link_sign_in" href="sign_in.php">pas de compte? s'inscire ici</a>
+<a id="link_sign_in" href="?page=sign_in">pas de compte? s'inscire ici</a>
     </div>
 
 </form>
