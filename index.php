@@ -1,12 +1,24 @@
 <?php
-$page = 'login';
+$pages = [
+    'home' => "Accueil",
+    'login' => "Connexion",
+    'sign_in' => "Inscription",
+];
+$page = 'home';
 
-// SI parametre page dans URL ET page demandé est dans le tab pages
-// On stock la valeur $page --> EVITER ERREUR STOCKER PAGE QUI N'EXISTE PAS
-if (isset($_GET['page'])) {
+// SI parametre page dans URL ET page demandé est dans le tableau pages ALORS on stock la valeur dans $page 
+//--> EVITER ERREUR STOCKER PAGE QUI N'EXISTE PAS
+if (isset($_GET['page']) && array_key_exists($_GET['page'], $pages)) {
     $page = $_GET['page'];
 }
+
+$pageTitle = $pages[$page];
+
+// Temporisation de sortie ne semble pas nécessaire à vérifier avec Rémi
+//ob_start(); 
 
 include_once 'includes/header.php';
 include_once 'pages/' . $page . '.php';
 include_once 'includes/footer.php';
+
+//ob_end_flush();
