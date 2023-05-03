@@ -1,7 +1,4 @@
 <?php
-include_once '../includes/header.php';
-
-
 if (!empty($_POST)) {
   $sql = "INSERT INTO `users`(`isConceptor`, `name`, `email`, `password`) VALUES (:isConceptor,:name, :email, :password)";
   $statement = $connection->prepare($sql);
@@ -38,7 +35,3 @@ if (!empty($_POST)) {
     <button type="submit" class="btn btn-dark w-25 m-auto">Valider</button>
   </div>
 </form>
-
-<?php
-include_once '../includes/footer.php';
-?>

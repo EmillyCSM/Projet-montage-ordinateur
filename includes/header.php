@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 
 // require_once 'autoload.php';
 // require_once 'config.inc.php';
@@ -28,31 +28,31 @@ if (!isset($pageTitle)) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">CLCD Concept</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Pièces <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Création pièce</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Modèles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Création modèle</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="?page=home">CLCD Concept</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-lg-flex justify-content-sm-between pe-2" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Pièces</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Création pièce</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Modèles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Création modèle</a>
+                        </li>
+                    </ul>
+                    <a class="nav-item btn btn-secondary" aria-current="page" href="?page=login">Connexion</a>
+                </div>
             </div>
-            <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: #17a2b8;"
-                type="submit">Connexion</button>
-        </div>
-    </nav>
-</body>
+        </nav>
+    </header>
