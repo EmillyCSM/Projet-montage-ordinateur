@@ -5,6 +5,7 @@
 // require_once 'config.inc.php';
 require_once 'variables.php';
 require_once 'functions.php';
+require_once 'db.inc.php';
 // Require pour qlq chose qui vient de PHP 
 // Include pour le HTML
 
