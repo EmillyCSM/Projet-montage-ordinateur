@@ -2,10 +2,9 @@
 session_start();
 
 // require_once 'autoload.php';
-// require_once 'config.inc.php';
+require_once 'db.inc.php';
 require_once 'variables.php';
 require_once 'functions.php';
-require_once 'db.inc.php';
 // Require pour qlq chose qui vient de PHP 
 // Include pour le HTML
 
@@ -51,7 +50,17 @@ if (!isset($pageTitle)) {
                             <a class="nav-link" href="#">Création modèle</a>
                         </li>
                     </ul>
-                    <a class="nav-item btn btn-secondary" aria-current="page" href="?page=login">Connexion</a>
+                    <?php
+                    if (isset($_SESSION['login'])) {
+                        ?>
+                        <a class="nav-item btn btn-secondary" aria-current="page" href="?page=logout">Déconnexion</a>
+                        <?php
+                    } else {
+                        ?>
+                        <a class="nav-item btn btn-secondary" aria-current="page" href="?page=login">Connexion</a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </nav>
