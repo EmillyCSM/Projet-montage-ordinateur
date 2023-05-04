@@ -1,6 +1,6 @@
 <?php
 
-class user
+class User
 {
     protected int $id;
     protected string $name;
