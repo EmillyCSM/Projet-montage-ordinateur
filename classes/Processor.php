@@ -12,7 +12,6 @@ class Mouse extends Piece
         return $this->id;
     }
 
-
     public function setId(int $id): self
     {
         $this->id = $id;
@@ -30,7 +29,6 @@ class Mouse extends Piece
         return $this;
     }
 
-
     public function getChipsetCompatibility(): bool
     {
         return $this->chipsetCompatibility;
@@ -46,7 +44,6 @@ class Mouse extends Piece
     {
         return $this->heartNumber;
     }
-
 
     public function setHeartNumber(int $heartNumber): self
     {

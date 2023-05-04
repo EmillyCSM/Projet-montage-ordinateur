@@ -20,7 +20,6 @@ class Mouse extends Piece
         return $this;
     }
 
-
     public function getCapacity(): int
     {
         return $this->capacity;
@@ -37,7 +36,6 @@ class Mouse extends Piece
         return $this->details;
     }
 
-
     public function setDetails(string $details): self
     {
         $this->details = $details;
@@ -48,7 +46,6 @@ class Mouse extends Piece
     {
         return $this->barsNumber;
     }
-
 
     public function setBarsNumber(int $barsNumber): self
     {

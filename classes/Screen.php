@@ -12,19 +12,16 @@ class ClassName extends Piece
         return $this->id;
     }
 
-
     public function setId(int $id): self
     {
         $this->id = $id;
         return $this;
     }
 
-
     public function getSize(): float
     {
         return $this->size;
     }
-
 
     public function setSize(float $size): self
     {

@@ -6,12 +6,10 @@ class Mouse extends Piece
     protected int $buttonNumber;
     protected bool $isWireless;
 
-
     public function getId(): int
     {
         return $this->id;
     }
-
 
     public function setId(int $id): self
     {
@@ -19,12 +17,10 @@ class Mouse extends Piece
         return $this;
     }
 
-
     public function getButtonNumber(): int
     {
         return $this->buttonNumber;
     }
-
 
     public function setButtonNumber(int $buttonNumber): self
     {
@@ -32,12 +28,10 @@ class Mouse extends Piece
         return $this;
     }
 
-
     public function getIsWireless(): bool
     {
         return $this->isWireless;
     }
-
 
     public function setIsWireless(bool $isWireless): self
     {
