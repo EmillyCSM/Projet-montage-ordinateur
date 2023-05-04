@@ -1,5 +1,5 @@
 <?php
-class Piece
+abstract class Piece
 {
     protected int $id;
     protected string $name = '';
