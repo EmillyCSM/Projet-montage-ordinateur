@@ -1,6 +1,5 @@
 <?php
-
-class user
+class User
 {
     protected int $id;
     protected string $name;
@@ -8,12 +7,10 @@ class user
     protected string $email;
     protected bool $isConceptor;
 
-
     public function getId(): int
     {
         return $this->id;
     }
-
 
     public function setId(int $id): self
     {
@@ -21,12 +18,10 @@ class user
         return $this;
     }
 
-
     public function getName(): string
     {
         return $this->name;
     }
-
 
     public function setName(string $name): self
     {
@@ -34,12 +29,10 @@ class user
         return $this;
     }
 
-
     public function getPassword(): string
     {
         return $this->password;
     }
-
 
     public function setPassword(string $password): self
     {
@@ -47,12 +40,10 @@ class user
         return $this;
     }
 
-
     public function getEmail(): string
     {
         return $this->email;
     }
-
 
     public function setEmail(string $email): self
     {
@@ -60,12 +51,10 @@ class user
         return $this;
     }
 
-
     public function getIsConceptor(): bool
     {
         return $this->isConceptor;
     }
-
 
     public function setIsConceptor(bool $isConceptor): self
     {
