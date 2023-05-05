@@ -1,7 +1,8 @@
 <?php
+require_once 'autoload.php';
+
 session_start();
 
-// require_once 'autoload.php';
 require_once 'db.inc.php';
 require_once 'variables.php';
 require_once 'functions.php';
@@ -10,8 +11,9 @@ require_once 'functions.php';
 
 if (!isset($pageTitle)) {
     $pageTitle = "CLCD Concept";
-}
-?>
+} ?>
+
+
 
 <!doctype html>
 <html lang="fr">
@@ -64,4 +66,11 @@ if (!isset($pageTitle)) {
                 </div>
             </div>
         </nav>
+        <?php
+
+        if (isset($_GET['login']) && $_GET['login'] == "success") { ?>
+            <div class="alert alert-success" role="alert">
+                Connection avec succès !
+            </div>
+        <?php } ?>
     </header>
