@@ -15,10 +15,10 @@ if (isset($_GET['page']) && array_key_exists($_GET['page'], $pages)) {
 $pageTitle = $pages[$page];
 
 // Temporisation de sortie ne semble pas nécessaire à vérifier avec Rémi
-//ob_start(); 
+ob_start();
 
 include_once 'includes/header.php';
 include_once 'pages/' . $page . '.php';
 include_once 'includes/footer.php';
 
-//ob_end_flush();
+ob_end_flush();
