@@ -3,6 +3,7 @@ $pages = [
     'home' => "Accueil",
     'login' => "Connexion",
     'sign_in' => "Inscription",
+    'add_piece' => "Ajout ou Modification pièce",
 ];
 $page = 'home';
 

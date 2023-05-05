@@ -1,5 +1,5 @@
 <?php
-class KeyBoard extends Piece
+class Keyboard extends Piece
 {
     protected int $id;
     protected bool $isWireless;
