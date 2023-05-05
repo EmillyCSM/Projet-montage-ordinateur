@@ -1,11 +1,23 @@
 <?php
-if (!empty($_POST)) {
-    var_dump($_POST['typePiece']);
+// if (!empty($_POST)) {
+// }
+// $_GET['typePiece'] = '';
+
+if (!empty($_GET['typePiece'])) {
+    echo $_GET['page'] . '</br>';
+    echo $_GET['typePiece'] . '</br>';
+    echo $_GET['test'] . '</br>';
 }
 ?>
 
 <section id="addPiecePage" class="container">
     <h2>Formulaire ajout ou modification de pièce</h2>
+
+    <ul>
+        <li>
+            <a href="?page=add_piece&test=hello&typePiece=screen" class="btn btn-primary mb-3">Ecran</a>
+        </li>
+    </ul>
 
     <form method="post" class="p-3 m-auto">
         <div class="row gap-4">
@@ -30,17 +42,6 @@ if (!empty($_POST)) {
                     <option value="1">Tour</option>
                 </select>
             </div>
-            <!-- fin champ pièce -->
-            <!--  Insertion champs selon la pièce choisie -->
-            <div class="form-group col-7">
-                <label for="typePiece" class="form-label">Type</label>
-                <select name="typePiece" id="typePiece" class="form-select">
-                    <?php foreach (Piece::CATEGORIES as $slug => $name) {
-                        echo "<option value='$slug'>$name</option>";
-                    }
-                    ?>
-                </select>
-            </div>
             <div class="form-group ">
                 <label for="pieceDescription" class="form-label">Description</label>
                 <textarea class="form-control" id="pieceDescribe" rows="6"></textarea>
@@ -48,6 +49,8 @@ if (!empty($_POST)) {
             <div class="">
                 <button type="submit" class="btn btn-dark w-25 m-auto">Ajouter</button>
             </div>
+            <!-- Ajout champs enfant  -->
+
         </div>
     </form>
 </section>
