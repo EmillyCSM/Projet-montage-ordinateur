@@ -1,6 +1,17 @@
 <?php
 abstract class Piece
 {
+    const CATEGORIES = [
+        'supply' => 'Alimentation',
+        'graficCard' => 'Carte graphique',
+        'motherBoard' => 'Carte mère',
+        'keyboard' => 'Clavier',
+        'screen' => 'Ecran',
+        'ram' => 'Mémoire vive',
+        'processor' => 'Processeur',
+        'mouse' => 'Souris/pad',
+        'hardDisk' => 'Disque dur/SSD',
+    ];
     protected int $id;
     protected string $name = '';
     protected string $brand = '';
