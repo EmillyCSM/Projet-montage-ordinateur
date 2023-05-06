@@ -3,7 +3,6 @@
 
 class ClassName extends Piece
 {
-    protected int $id;
     protected float $size;
 
 
