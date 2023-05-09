@@ -5,7 +5,7 @@ spl_autoload_register(function ($class) {
 
 require_once '../includes/db.inc.php';
 
-// $connection->exec('TRUNCATE TABLE `computer_assembly`.`graficcard`');
+$connection->exec('TRUNCATE TABLE `computer_assembly`.`graficcard`'); // Pour effacer la table précedente avant d'ajouter la nouvelle. 
 
 $graficCards = [
     (new GraficCard())
@@ -43,7 +43,7 @@ $graficCards = [
 
 $insertGarficCard = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description);
 SET @last_id = LAST_INSERT_ID();
-INSERT INTO graficcard (`piece_id`,`chipset`, `memory`) 
+INSERT INTO graficcard (`id`,`chipset`, `memory`) 
                         VALUES (@last_id, :chipset, :memory);";
 
 $statement = $connection->prepare($insertGarficCard);
