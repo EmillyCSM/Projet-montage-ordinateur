@@ -21,7 +21,3 @@
                 <option value="1">Tour</option>
             </select>
         </div>
-        <div class="form-group ">
-            <label for="pieceDescription" class="form-label">Description</label>
-            <textarea class="form-control" id="pieceDescribe" rows="6"></textarea>
-        </div>

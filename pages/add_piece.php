@@ -15,6 +15,7 @@
     <!-- Include Formular -->
 
     <?php
+    var_dump($_POST);
     if (!empty($_GET['typePiece']) && array_key_exists($_GET['typePiece'], Piece::CATEGORIES)) {
         $type = $_GET['typePiece'];
         include_once 'includes/add_piece/start_form.php';

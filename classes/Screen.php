@@ -3,7 +3,6 @@
 
 class Screen extends Piece
 {
-    protected int $id;
     protected float $size;
 
 
