@@ -1,9 +1,5 @@
 <?php
-spl_autoload_register(function ($class) {
-    require_once "../classes/$class.php";
-});
 
-require_once '../includes/db.inc.php';
 
 $connection->exec('TRUNCATE TABLE `computer_assembly`.`graficcard`'); // Pour effacer la table précedente avant d'ajouter la nouvelle. 
 
@@ -41,12 +37,11 @@ $graficCards = [
 ];
 
 
-$insertGarficCard = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description);
-SET @last_id = LAST_INSERT_ID();
-INSERT INTO graficcard (`id`,`chipset`, `memory`) 
-                        VALUES (@last_id, :chipset, :memory);";
 
-$statement = $connection->prepare($insertGarficCard);
+$insertPiece = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description);";
+$insertGarficCard = "INSERT INTO graficcard (`id`,`chipset`, `memory`) VALUES (:id, :chipset, :memory);";
+$statement = $connection->prepare($insertPiece);
+$statementGC = $connection->prepare($insertGarficCard);
 
 foreach ($graficCards as $graficCard) {
     $statement->bindValue(':name', $graficCard->getName(), PDO::PARAM_STR);
@@ -56,8 +51,13 @@ foreach ($graficCards as $graficCard) {
     $statement->bindValue(':isDesktop', $graficCard->getIsDesktop(), PDO::PARAM_BOOL);
     $statement->bindValue(':isArchived', $graficCard->getIsArchived(), PDO::PARAM_BOOL);
     $statement->bindValue(':description', $graficCard->getDescription(), PDO::PARAM_STR);
-    $statement->bindValue(':chipset', $graficCard->getChipset(), PDO::PARAM_STR);
-    $statement->bindValue(':memory', $graficCard->getMemory(), PDO::PARAM_INT);
-
     $statement->execute();
+
+    $id = $connection->lastInsertId();
+
+    $statementGC->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);
+    $statementGC->bindValue(':chipset', $graficCard->getChipset(), PDO::PARAM_STR);
+    $statementGC->bindValue(':memory', $graficCard->getMemory(), PDO::PARAM_INT);
+
+    $statementGC->execute();
 }
