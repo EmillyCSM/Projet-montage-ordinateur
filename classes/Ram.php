@@ -1,6 +1,6 @@
 <?php
 
-class Mouse extends Piece
+class Ram extends Piece
 {
     protected int $id;
     protected int $capacity;

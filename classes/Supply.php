@@ -1,5 +1,5 @@
 <?php
-class Mouse extends Piece
+class Supply extends Piece
 {
     protected int $id;
     protected float $powerSupply;

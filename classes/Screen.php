@@ -1,7 +1,7 @@
 <?php
 
 
-class ClassName extends Piece
+class Screen extends Piece
 {
     protected int $id;
     protected float $size;
