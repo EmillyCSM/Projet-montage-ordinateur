@@ -46,17 +46,18 @@ if (!empty($_POST)) {
     <div class="row col-8 col-md-6 col-lg-5 p-3 m-auto gap-4">
         <div class="form-group">
             <label for="email">Adresse mail</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" required>
         </div>
         <div class="form-group">
             <label for="password">Mot de passe</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe"
+                required>
         </div>
         <div>
 
         </div>
         <button type="submit" class="btn btn-dark m-auto w-25">Valider</button>
-        <a id="link_sign_in" href="?page=sign_in">pas de compte? s'inscire ici</a>
+        <a id="link_sign_in" href="?page=sign_in">Pas de compte? s'inscire ici</a>
     </div>
 
 </form>

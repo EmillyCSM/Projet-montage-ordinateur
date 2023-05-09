@@ -1,6 +1,6 @@
 <?php
 
-class Mouse extends Piece
+class Processor extends Piece
 {
     protected int $id;
     protected float $fequencyCPU;

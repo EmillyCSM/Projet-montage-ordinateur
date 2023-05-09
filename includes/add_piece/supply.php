@@ -1,4 +1,4 @@
 <div class="form-group">
-    <label for="TETS" class="form-label">TEST</label>
-    <input type="TEST" class="form-control" id="TEST" name="TEST" placeholder="TEST">
+    <label for="powerSupply" class="form-label">Puissance</label>
+    <input type="number" class="form-control" id="powerSupply" name="powerSupply">
 </div>
