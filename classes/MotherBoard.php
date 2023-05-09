@@ -2,8 +2,8 @@
 class MotherBoard extends Piece
 {
     protected int $id;
-    protected bool $isStock;
-    protected int $capacity;
+    protected bool $isSocket;
+    protected string $format;
 
     public function getId(): int
     {
@@ -16,25 +16,25 @@ class MotherBoard extends Piece
         return $this;
     }
 
-    public function getIsStock(): bool
+    public function getIsSocket(): bool
     {
-        return $this->isStock;
+        return $this->isSocket;
     }
 
-    public function setIsStock(bool $isStock): self
+    public function setIsSocket(bool $isSocket): self
     {
-        $this->isStock = $isStock;
+        $this->isSocket = $isSocket;
         return $this;
     }
 
-    public function getCapacity(): int
+    public function getFormat(): string
     {
-        return $this->capacity;
+        return $this->format;
     }
 
-    public function setCapacity(int $capacity): self
+    public function setFormat(string $format): self
     {
-        $this->capacity = $capacity;
+        $this->format = $format;
         return $this;
     }
 }

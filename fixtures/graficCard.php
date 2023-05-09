@@ -1,8 +1,5 @@
 <?php
 
-
-$connection->exec('TRUNCATE TABLE `computer_assembly`.`graficcard`'); // Pour effacer la table précedente avant d'ajouter la nouvelle. 
-
 $graficCards = [
     (new GraficCard())
         ->setName('GeForce RTX 4750')
@@ -19,7 +16,7 @@ $graficCards = [
         ->setBrand('Gigabyte')
         ->setBuyingPrice(655.99)
         ->setQuantity(4)
-        ->setIsDesktop(0)
+        ->setIsDesktop(1)
         ->setIsArchived(0)
         ->setDescription('La carte graphique Gigabyte GeForce RTX 5885 Vénus 12G à 3 ventilateurs à rotation alternée (WINDFORCE 3X).')
         ->setChipset('NVIDIA GeForce RTX 5885')
@@ -36,11 +33,8 @@ $graficCards = [
         ->setMemory(8),
 ];
 
-
-
-$insertPiece = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description);";
 $insertGarficCard = "INSERT INTO graficcard (`id`,`chipset`, `memory`) VALUES (:id, :chipset, :memory);";
-$statement = $connection->prepare($insertPiece);
+
 $statementGC = $connection->prepare($insertGarficCard);
 
 foreach ($graficCards as $graficCard) {
@@ -52,8 +46,6 @@ foreach ($graficCards as $graficCard) {
     $statement->bindValue(':isArchived', $graficCard->getIsArchived(), PDO::PARAM_BOOL);
     $statement->bindValue(':description', $graficCard->getDescription(), PDO::PARAM_STR);
     $statement->execute();
-
-    $id = $connection->lastInsertId();
 
     $statementGC->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);
     $statementGC->bindValue(':chipset', $graficCard->getChipset(), PDO::PARAM_STR);
