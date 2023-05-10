@@ -53,13 +53,13 @@ if (!isset($pageTitle)) {
                         </li>
                     </ul>
                     <?php
-                    if (isset($_SESSION['login'])) {
+                    if (isset($_SESSION['user']) && $_SESSION['user'] instanceof User) {
                         ?>
-                        <a class="nav-item btn btn-secondary" aria-current="page" href="?page=logout">Déconnexion</a>
+                        <a class="nav-item btn btn-secondary" href="?page=logout">Déconnexion</a>
                         <?php
                     } else {
                         ?>
-                        <a class="nav-item btn btn-secondary" aria-current="page" href="?page=login">Connexion</a>
+                        <a class="nav-item btn btn-secondary" href="?page=login">Connexion</a>
                         <?php
                     }
                     ?>
@@ -70,7 +70,13 @@ if (!isset($pageTitle)) {
 
         if (isset($_GET['login']) && $_GET['login'] == "success") { ?>
             <div class="alert alert-success" role="alert">
-                Connection avec succès !
+                Connexion avec succès !
+            </div>
+        <?php }
+
+        if (isset($_GET['logout']) && $_GET['logout'] == "success") { ?>
+            <div class="alert alert-success" role="alert">
+                Déconnexion avec succès !
             </div>
         <?php } ?>
     </header>

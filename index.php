@@ -2,12 +2,13 @@
 $pages = [
     'home' => "Accueil",
     'login' => "Connexion",
+    'deconnexion' => "Déconnexion",
     'sign_in' => "Inscription",
     'add_piece' => "Ajout ou Modification pièce",
 ];
 $page = 'home';
 
-// SI parametre page dans URL ET page demandé est dans le tableau pages ALORS on stock la valeur dans $page 
+// SI parametre page dans URL ET page demandé est dans le tableau pages ALORS on stock la valeur dans $page
 //--> EVITER ERREUR STOCKER PAGE QUI N'EXISTE PAS
 if (isset($_GET['page']) && array_key_exists($_GET['page'], $pages)) {
     $page = $_GET['page'];
