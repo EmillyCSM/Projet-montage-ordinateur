@@ -1,5 +1,5 @@
 <?php
-abstract class Piece
+class Piece
 {
     const CATEGORIES = [
         'supply' => 'Alimentation',
