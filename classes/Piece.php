@@ -6,11 +6,11 @@ abstract class Piece
         'graficCard' => 'Carte graphique',
         'motherBoard' => 'Carte mère',
         'keyboard' => 'Clavier',
+        'hardDisk' => 'Disque dur/SSD',
         'screen' => 'Ecran',
-        'ram' => 'Mémoire vive',
+        'ram' => 'Mémoire vive (RAM)',
         'processor' => 'Processeur',
         'mouse' => 'Souris/pad',
-        'hardDisk' => 'Disque dur/SSD',
     ];
     protected int $id;
     protected string $name = '';
