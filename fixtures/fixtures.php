@@ -27,9 +27,9 @@ include 'graficCard.php';
 include 'hardDisk.php';
 include 'keyboard.php';
 include 'motherboard.php';
-// include 'mouse.php';
-// include 'processor.php';
-// include 'ram.php';
-// include 'screen.php';
-// include 'supply.php';
+include 'mouse.php';
+include 'processor.php';
+include 'ram.php';
+include 'screen.php';
+include 'supply.php';
 ?>

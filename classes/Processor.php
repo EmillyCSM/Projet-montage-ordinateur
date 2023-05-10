@@ -4,7 +4,7 @@ class Processor extends Piece
 {
     protected int $id;
     protected float $fequencyCPU;
-    protected bool $chipsetCompatibility;
+    protected string $chipsetCompatibility;
     protected int $heartNumber;
 
     public function getId(): int
@@ -29,12 +29,12 @@ class Processor extends Piece
         return $this;
     }
 
-    public function getChipsetCompatibility(): bool
+    public function getChipsetCompatibility(): string
     {
         return $this->chipsetCompatibility;
     }
 
-    public function setChipsetCompatibility(bool $chipsetCompatibility): self
+    public function setChipsetCompatibility(string $chipsetCompatibility): self
     {
         $this->chipsetCompatibility = $chipsetCompatibility;
         return $this;
