@@ -2,7 +2,7 @@
 $pages = [
     'home' => "Accueil",
     'login' => "Connexion",
-    'deconnexion' => "Déconnexion",
+    'logout' => "Déconnexion",
     'sign_in' => "Inscription",
     'add_piece' => "Ajout ou Modification pièce",
 ];
