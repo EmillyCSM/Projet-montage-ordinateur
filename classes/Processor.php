@@ -7,6 +7,23 @@ class Processor extends Piece
     protected string $chipsetCompatibility = '';
     protected int $heartNumber = 0;
 
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['frequancyCPU'])) {
+            $this->setFequencyCPU($data['frequancyCPU']);
+        }
+        if (!empty($data['chipsetCompatibility'])) {
+            $this->setChipsetCompatibility($data['chipsetCompatibility']);
+        }
+        if (!empty($data['heartNumber'])) {
+            $this->setHeartNumber($data['heartNumber']);
+        }
+    }
     public function getId(): int
     {
         return $this->id;

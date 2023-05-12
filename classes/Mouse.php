@@ -6,6 +6,21 @@ class Mouse extends Piece
     protected int $buttonNumber = 0;
     protected bool $isWireless = false;
 
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['buttonNumber'])) {
+            $this->setButtonNumber($data['buttonNumber']);
+        }
+        if (!empty($data['isWireless'])) {
+            $this->setIsWireless($data['isWireless']);
+        }
+    }
+
     public function getId(): int
     {
         return $this->id;

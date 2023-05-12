@@ -8,6 +8,23 @@ class Ram extends Piece
     protected int $barsNumber = 0;
 
 
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['capacity'])) {
+            $this->setCapacity($data['capacity']);
+        }
+        if (!empty($data['details'])) {
+            $this->setDetails($data['details']);
+        }
+        if (!empty($data['barsNumber'])) {
+            $this->setBarsNumber($data['barsNumber']);
+        }
+    }
     public function getId(): int
     {
         return $this->id;
@@ -30,7 +47,6 @@ class Ram extends Piece
         $this->capacity = $capacity;
         return $this;
     }
-
     public function getDetails(): string
     {
         return $this->details;
