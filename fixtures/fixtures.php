@@ -17,6 +17,7 @@ TRUNCATE TABLE `computer_assembly`.`processor`;
 TRUNCATE TABLE `computer_assembly`.`ram`;
 TRUNCATE TABLE `computer_assembly`.`screen`;
 TRUNCATE TABLE `computer_assembly`.`supply`;
+TRUNCATE TABLE `computer_assembly`.`users`;
 SET FOREIGN_KEY_CHECKS=1;
 '); // Pour effacer la table précedente avant d'ajouter la nouvelle. 
 
@@ -32,4 +33,4 @@ include 'processor.php';
 include 'ram.php';
 include 'screen.php';
 include 'supply.php';
-?>
+include 'user.php';

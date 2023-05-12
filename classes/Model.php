@@ -3,10 +3,10 @@
 class Model
 {
 	protected int $id;
-	protected string $name;
-	protected bool $isDesktop;
-	protected int $computerCreationNumber;
-	protected string $addDate;
+	protected string $name = '';
+	protected bool $isDesktop = false;
+	protected int $computerCreationNumber = 0;
+	protected string $addDate = '';
 
 
 	public function getId(): int

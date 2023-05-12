@@ -2,8 +2,8 @@
 class MotherBoard extends Piece
 {
     protected int $id;
-    protected bool $isSocket;
-    protected string $format;
+    protected bool $isSocket = false;
+    protected string $format = '';
 
     public function getId(): int
     {

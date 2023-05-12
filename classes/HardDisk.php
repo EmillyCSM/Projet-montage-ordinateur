@@ -2,8 +2,8 @@
 class HardDisk extends Piece
 {
     protected int $id;
-    protected bool $isSSD;
-    protected int $capacity;
+    protected bool $isSSD = false;
+    protected int $capacity = 0;
 
     public function getId(): int
     {

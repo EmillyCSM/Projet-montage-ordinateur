@@ -17,9 +17,37 @@ class Piece
     protected string $brand = '';
     protected float $buyingPrice = 0.0; // Stocké en BDD en centime et converti ici avec *100
     protected int $quantity = 0;
-    protected bool $isDesktop;
-    protected bool $isArchived;
+    protected bool $isDesktop = false;
+    protected bool $isArchived = false;
     protected ?string $description = '';
+
+    public function __construct(array $data = [])
+    {
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['name'])) {
+            $this->setName(trim($data['name']));
+        }
+        if (!empty($data['brand'])) {
+            $this->setBrand(trim($data['brand']));
+        }
+        if (!empty($data['buyingPrice'])) {
+            $this->setBuyingPrice($data['buyingPrice']);
+        }
+        if (!empty($data['quantity'])) {
+            $this->setQuantity($data['quantity']);
+        }
+        if (!empty($data['isDesktop'])) {
+            $this->setIsDesktop($data['isDesktop']);
+        }
+        if (!empty($data['isArchived'])) {
+            $this->setIsArchived($data['isArchived']);
+        }
+        if (!empty($data['description'])) {
+            $this->setDescription(trim($data['description']));
+        }
+    }
 
 
     public function getId(): int

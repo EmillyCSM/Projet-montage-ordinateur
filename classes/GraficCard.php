@@ -5,6 +5,22 @@ class GraficCard extends Piece
     protected string $chipset = '';
     protected int $memory = 0;
 
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['chipset'])) {
+            $this->setChipset($data['chipset']);
+
+        }
+        if (!empty($data['memory'])) {
+            $this->setMemory($data['memory']);
+        }
+    }
+
     public function getId(): int
     {
         return $this->id;

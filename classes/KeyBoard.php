@@ -2,9 +2,9 @@
 class Keyboard extends Piece
 {
     protected int $id;
-    protected bool $isWireless;
-    protected bool $isNumeric;
-    protected bool $isAzerty;
+    protected bool $isWireless = false;
+    protected bool $isNumeric = false;
+    protected bool $isAzerty = false;
 
     public function getId(): int
     {

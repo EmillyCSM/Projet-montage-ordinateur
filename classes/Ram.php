@@ -3,9 +3,9 @@
 class Ram extends Piece
 {
     protected int $id;
-    protected int $capacity;
-    protected string $details;
-    protected int $barsNumber;
+    protected int $capacity = 0;
+    protected string $details = '';
+    protected int $barsNumber = 0;
 
 
     public function getId(): int

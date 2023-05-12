@@ -3,7 +3,7 @@
 
 class Screen extends Piece
 {
-    protected float $size;
+    protected float $size = 0;
 
 
     public function getId(): int

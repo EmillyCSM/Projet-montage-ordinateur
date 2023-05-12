@@ -2,7 +2,7 @@
 class Supply extends Piece
 {
     protected int $id;
-    protected float $powerSupply;
+    protected float $powerSupply = 0;
 
     public function getId(): int
     {
