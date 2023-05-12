@@ -2,10 +2,10 @@
 class User
 {
     protected int $id;
-    protected string $name;
-    protected string $password;
-    protected string $email;
-    protected bool $isConceptor;
+    protected string $name = '';
+    protected string $password = '';
+    protected string $email = '';
+    protected bool $isConceptor = false;
 
     public function getId(): int
     {

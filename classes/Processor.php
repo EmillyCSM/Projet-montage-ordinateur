@@ -3,9 +3,9 @@
 class Processor extends Piece
 {
     protected int $id;
-    protected float $fequencyCPU;
-    protected string $chipsetCompatibility;
-    protected int $heartNumber;
+    protected float $fequencyCPU = 0;
+    protected string $chipsetCompatibility = '';
+    protected int $heartNumber = 0;
 
     public function getId(): int
     {

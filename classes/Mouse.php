@@ -3,8 +3,8 @@
 class Mouse extends Piece
 {
     protected int $id;
-    protected int $buttonNumber;
-    protected bool $isWireless;
+    protected int $buttonNumber = 0;
+    protected bool $isWireless = false;
 
     public function getId(): int
     {
