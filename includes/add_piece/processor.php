@@ -1,7 +1,7 @@
 <div class="form-group col-7 col-md-4">
-    <label for="fequencyCPU" class="form-label">Fréquence CPU (en GHz)</label>
-    <input type="number" step="0.01" class="form-control" name="fequencyCPU" id="fequencyCPU" placeholder="3,70"
-        value="<?= $piece->getFequencyCPU(); ?>">
+    <label for="frequencyCPU" class="form-label">Fréquence CPU (en GHz)</label>
+    <input type="number" step="0.01" class="form-control" name="frequencyCPU" id="frequencyCPU" placeholder="3,70"
+        value="<?= $piece->getfrequencyCPU(); ?>">
 </div>
 <div class="form-group col-7 col-md-4">
     <label for="heartNumber" class="form-label">Nombre de cœurs</label>
