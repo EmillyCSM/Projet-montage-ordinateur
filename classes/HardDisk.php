@@ -5,6 +5,22 @@ class HardDisk extends Piece
     protected bool $isSSD = false;
     protected int $capacity = 0;
 
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['isSSD'])) {
+            $this->setIsSSD(($data['isSSD']));
+
+        }
+        if (!empty($data['capacity'])) {
+            $this->setCapacity($data['capacity']);
+        }
+    }
+
     public function getId(): int
     {
         return $this->id;

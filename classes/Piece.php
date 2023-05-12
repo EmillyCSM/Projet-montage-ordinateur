@@ -2,15 +2,15 @@
 class Piece
 {
     const CATEGORIES = [
-        'supply' => 'Alimentation',
         'graficCard' => 'Carte graphique',
-        'motherBoard' => 'Carte mère',
-        'keyboard' => 'Clavier',
         'hardDisk' => 'Disque dur/SSD',
-        'screen' => 'Ecran',
-        'ram' => 'Mémoire vive (RAM)',
-        'processor' => 'Processeur',
+        'keyboard' => 'Clavier',
+        'motherBoard' => 'Carte mère',
         'mouse' => 'Souris/pad',
+        'processor' => 'Processeur',
+        'ram' => 'Mémoire vive (RAM)',
+        'screen' => 'Ecran',
+        'supply' => 'Alimentation',
     ];
 
     protected int $id;
