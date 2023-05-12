@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `piece` (
 DROP TABLE IF EXISTS `processor`;
 CREATE TABLE IF NOT EXISTS `processor` (
   `id` int NOT NULL,
-  `fequencyCPU` decimal(15,2) DEFAULT NULL,
+  `frequencyCPU` decimal(15,2) DEFAULT NULL,
   `heartNumber` int DEFAULT NULL,
   `chipsetCompatibility` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)

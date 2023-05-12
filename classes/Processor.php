@@ -3,7 +3,7 @@
 class Processor extends Piece
 {
     protected int $id;
-    protected float $fequencyCPU = 0;
+    protected float $frequencyCPU = 0;
     protected string $chipsetCompatibility = '';
     protected int $heartNumber = 0;
 
@@ -15,7 +15,7 @@ class Processor extends Piece
             $this->setId($data['id']);
         }
         if (!empty($data['frequancyCPU'])) {
-            $this->setFequencyCPU($data['frequancyCPU']);
+            $this->setfrequencyCPU($data['frequancyCPU']);
         }
         if (!empty($data['chipsetCompatibility'])) {
             $this->setChipsetCompatibility($data['chipsetCompatibility']);
@@ -35,14 +35,14 @@ class Processor extends Piece
         return $this;
     }
 
-    public function getFequencyCPU(): float
+    public function getfrequencyCPU(): float
     {
-        return $this->fequencyCPU;
+        return $this->frequencyCPU;
     }
 
-    public function setFequencyCPU(float $fequencyCPU): self
+    public function setfrequencyCPU(float $frequencyCPU): self
     {
-        $this->fequencyCPU = $fequencyCPU;
+        $this->frequencyCPU = $frequencyCPU;
         return $this;
     }
 

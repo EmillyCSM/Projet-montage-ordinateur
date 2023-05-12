@@ -2,7 +2,7 @@
 
 $processors = [
     (new Processor())
-        ->setFequencyCPU("3.7")
+        ->setfrequencyCPU("3.7")
         ->setChipsetCompatibility("AMD B550, AMD X570")
         ->setHeartNumber(6)
         ->setName('AMD Ryzen 5 5600X Wraith Stealth')
@@ -13,7 +13,7 @@ $processors = [
         ->setIsArchived(0)
         ->setDescription('Le processeur AMD Ryzen 5 5600X est taillé pour le jeu vidéo : 6 Cores, 12 Threads et GameCache 35 Mo.'),
     (new Processor())
-        ->setFequencyCPU(3.5)
+        ->setfrequencyCPU(3.5)
         ->setChipsetCompatibility(' Intel B660 Express,
     Intel H610 Express,
     Intel H670 Express,
@@ -30,7 +30,7 @@ $processors = [
         ->setIsArchived(0)
         ->setDescription('Processeur 14-Core (6 Performance-Cores + 8 Efficient-Cores) 20-Threads Socket 1700 Cache L3 24 Mo 0.010 micron '),
     (new Processor())
-        ->setFequencyCPU(3.8)
+        ->setfrequencyCPU(3.8)
         ->setChipsetCompatibility('AMD A520,
         AMD B550,
         AMD X570')
@@ -43,7 +43,7 @@ $processors = [
         ->setIsArchived(0)
         ->setDescription('La MSI GeForce RTX 4750 VENUS 8G de mémoire GDDR6 adressée via une interface large de 128 bits. La mémoire a une vitesse de 14000 MHz.'),
     (new Processor())
-        ->setFequencyCPU(3.7)
+        ->setfrequencyCPU(3.7)
         ->setChipsetCompatibility('AMD A520,
     AMD B550,
     AMD X570 ')
@@ -59,7 +59,7 @@ $processors = [
 
 
 
-$insertProcessor = "INSERT INTO `processor` (`id`,`fequencyCPU`, `heartNumber`,`chipsetCompatibility`) VALUES (:id, :fequencyCPU, :heartNumber, :chipsetCompatibility );";
+$insertProcessor = "INSERT INTO `processor` (`id`,`frequencyCPU`, `heartNumber`,`chipsetCompatibility`) VALUES (:id, :frequencyCPU, :heartNumber, :chipsetCompatibility );";
 
 $statementProcessor = $connection->prepare($insertProcessor);
 
@@ -75,7 +75,7 @@ foreach ($processors as $processor) {
     $statement->execute();
 
     $statementProcessor->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);
-    $statementProcessor->bindValue(':fequencyCPU', $processor->getFequencyCPU(), PDO::PARAM_INT);
+    $statementProcessor->bindValue(':frequencyCPU', $processor->getfrequencyCPU(), PDO::PARAM_INT);
     $statementProcessor->bindValue(':chipsetCompatibility', $processor->getChipsetCompatibility(), PDO::PARAM_STR);
     $statementProcessor->bindValue(':heartNumber', $processor->getHeartNumber(), PDO::PARAM_INT);
 
