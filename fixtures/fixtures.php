@@ -21,7 +21,7 @@ TRUNCATE TABLE `computer_assembly`.`users`;
 SET FOREIGN_KEY_CHECKS=1;
 '); // Pour effacer la table précedente avant d'ajouter la nouvelle. 
 
-$insertPiece = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description);";
+$insertPiece = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`, `category`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description, :category);";
 $statement = $connection->prepare($insertPiece);
 
 include 'graficCard.php';

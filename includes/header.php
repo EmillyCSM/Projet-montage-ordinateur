@@ -38,7 +38,7 @@ if (!isset($pageTitle)) {
                 <div class="collapse navbar-collapse d-lg-flex justify-content-sm-between pe-2" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Pièces</a>
+                            <a class="nav-link" href="?page=list_pieces">Pièces</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Création pièce</a>

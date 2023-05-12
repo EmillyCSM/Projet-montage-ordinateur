@@ -1,5 +1,5 @@
 <?php
-
+$category = 'keyboard';
 $keyBoards = [
     (new Keyboard())
         ->setName('Targus Clavier Bluetooth (AZERTY Français)')
@@ -72,12 +72,14 @@ foreach ($keyBoards as $keyboard) {
     $statement->bindValue(':isDesktop', $keyboard->getIsDesktop(), PDO::PARAM_BOOL);
     $statement->bindValue(':isArchived', $keyboard->getIsArchived(), PDO::PARAM_BOOL);
     $statement->bindValue(':description', $keyboard->getDescription(), PDO::PARAM_STR);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
     $statement->execute();
     // fin insertion données parent : Pièce
     $statementKeyboard->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);
     $statementKeyboard->bindValue(':isWireless', $keyboard->getIsWireless(), PDO::PARAM_BOOL);
     $statementKeyboard->bindValue(':isNumeric', $keyboard->getIsNumeric(), PDO::PARAM_BOOL);
     $statementKeyboard->bindValue(':isAzerty', $keyboard->getIsAzerty(), PDO::PARAM_BOOL);
+    
 
     $statementKeyboard->execute();
     // fin insertion données fille : Keyboard

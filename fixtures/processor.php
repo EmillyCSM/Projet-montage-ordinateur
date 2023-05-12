@@ -1,5 +1,5 @@
 <?php
-
+$category = 'processor';
 $processors = [
     (new Processor())
         ->setfrequencyCPU("3.7")
@@ -71,6 +71,7 @@ foreach ($processors as $processor) {
     $statement->bindValue(':brand', $processor->getBrand(), PDO::PARAM_STR);
     $statement->bindValue(':quantity', $processor->getQuantity(), PDO::PARAM_INT);
     $statement->bindValue(':isDesktop', $processor->getIsDesktop(), PDO::PARAM_BOOL);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
 
     $statement->execute();
 

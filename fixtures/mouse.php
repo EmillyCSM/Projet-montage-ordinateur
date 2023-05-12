@@ -1,5 +1,5 @@
 <?php
-
+$category = 'mouse';
 $mouses = [
     (new Mouse())
     ->setName('Logitech G Pro Wireless Gaming Mouse ')
@@ -55,6 +55,7 @@ foreach ($mouses as $mouse) {
     $statement->bindValue(':brand', $mouse->getBrand(), PDO::PARAM_STR);
     $statement->bindValue(':quantity', $mouse->getQuantity(), PDO::PARAM_INT);
     $statement->bindValue(':isDesktop', $mouse->getIsDesktop(), PDO::PARAM_BOOL);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
 
     $statement->execute();
 

@@ -12,6 +12,7 @@ class Piece
         'processor' => 'Processeur',
         'mouse' => 'Souris/pad',
     ];
+
     protected int $id;
     protected string $name = '';
     protected string $brand = '';
@@ -20,6 +21,7 @@ class Piece
     protected bool $isDesktop = false;
     protected bool $isArchived = false;
     protected ?string $description = '';
+    protected ?string $category = '';
 
     public function __construct(array $data = [])
     {
@@ -138,4 +140,22 @@ class Piece
         return $this;
     }
 
+
+    /**
+     * @return 
+     */
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param  $category 
+     * @return self
+     */
+    public function setCategory(?string $category): self
+    {
+        $this->category = $category;
+        return $this;
+    }
 }

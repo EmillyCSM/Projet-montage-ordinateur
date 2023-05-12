@@ -1,4 +1,5 @@
 <?php
+$category = 'screen';
 
 $screens = [
     (new Screen())
@@ -51,6 +52,7 @@ foreach ($screens as $screen) {
     $statement->bindValue(':brand', $screen->getBrand(), PDO::PARAM_STR);
     $statement->bindValue(':quantity', $screen->getQuantity(), PDO::PARAM_INT);
     $statement->bindValue(':isDesktop', $screen->getIsDesktop(), PDO::PARAM_BOOL);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
 
     $statement->execute();
 

@@ -53,9 +53,6 @@ if (!empty($_POST)) {
             <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe"
                 required>
         </div>
-        <div>
-
-        </div>
         <button type="submit" class="btn btn-dark m-auto w-25">Valider</button>
         <a id="link_sign_in" href="?page=sign_in">Pas de compte? s'inscire ici</a>
     </div>
