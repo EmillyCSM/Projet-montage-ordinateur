@@ -1,5 +1,5 @@
 <?php
-
+$category = 'hardDisk';
 $hardDisks = [
     (new HardDisk())
         ->setName('Jupiter 304 1 To')
@@ -64,6 +64,7 @@ foreach ($hardDisks as $hardDisk) {
     $statement->bindValue(':isDesktop', $hardDisk->getIsDesktop(), PDO::PARAM_BOOL);
     $statement->bindValue(':isArchived', $hardDisk->getIsArchived(), PDO::PARAM_BOOL);
     $statement->bindValue(':description', $hardDisk->getDescription(), PDO::PARAM_STR);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
     $statement->execute();
     // fin insertion données parent : Pièce
     $statementHD->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);

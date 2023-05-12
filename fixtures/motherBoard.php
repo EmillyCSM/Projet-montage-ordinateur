@@ -1,4 +1,5 @@
 <?php
+$category = 'motherBoard';
 
 $motherBoards = [
     (new MotherBoard())
@@ -56,6 +57,7 @@ foreach ($motherBoards as $motherBoard) {
     $statement->bindValue(':isDesktop', $motherBoard->getIsDesktop(), PDO::PARAM_BOOL);
     $statement->bindValue(':isArchived', $motherBoard->getIsArchived(), PDO::PARAM_BOOL);
     $statement->bindValue(':description', $motherBoard->getDescription(), PDO::PARAM_STR);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
     $statement->execute();
 
     $statementMB->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);

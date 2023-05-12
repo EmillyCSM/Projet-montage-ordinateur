@@ -1,5 +1,5 @@
 <?php
-
+$category = 'graficCard';
 $graficCards = [
     (new GraficCard())
         ->setName('GeForce RTX 4750')
@@ -45,6 +45,7 @@ foreach ($graficCards as $graficCard) {
     $statement->bindValue(':isDesktop', $graficCard->getIsDesktop(), PDO::PARAM_BOOL);
     $statement->bindValue(':isArchived', $graficCard->getIsArchived(), PDO::PARAM_BOOL);
     $statement->bindValue(':description', $graficCard->getDescription(), PDO::PARAM_STR);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
     $statement->execute();
 
     $statementGC->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);

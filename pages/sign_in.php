@@ -1,7 +1,7 @@
 <?php
 $errors = [];
 if (!empty($_POST)) {
-  if (empty($_POST["status"])) {
+  if (empty($_POST["status"])&& !($_POST["status"] == 0) ) {
     $errors['status'] = 'Veuillez definir votre status svp';
   }
   if (empty($_POST["name"])) {
@@ -24,6 +24,7 @@ if (!empty($_POST)) {
     $statement->bindValue(":password", password_hash($_POST["password"], PASSWORD_BCRYPT), PDO::PARAM_STR);
 
     $statement->execute();
+    header('Location: index.php?page=login');
   }
 }
 

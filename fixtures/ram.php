@@ -1,5 +1,5 @@
 <?php
-
+$category = 'ram';
 $rams = [
     (new Ram())
         ->setName('Corsair Vengeance LPX Series Low Profile')
@@ -59,6 +59,7 @@ foreach ($rams as $ram) {
     $statement->bindValue(':brand', $ram->getBrand(), PDO::PARAM_STR);
     $statement->bindValue(':quantity', $ram->getQuantity(), PDO::PARAM_INT);
     $statement->bindValue(':isDesktop', $ram->getIsDesktop(), PDO::PARAM_BOOL);
+    $statement->bindValue(':category', $category, PDO::PARAM_STR);
 
     $statement->execute();
 

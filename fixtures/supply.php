@@ -1,7 +1,7 @@
 <?php
-
-$supplys = [
-    (new Supply())
+$category = 'supply';
+    $supplys = [
+        (new Supply())
         ->setName('be quiet')
         ->setBrand('Be Quiet !')
         ->setBuyingPrice(144.94)
@@ -43,14 +43,17 @@ $insertSupply = "INSERT INTO `supply` (`id`,`powerSupply`) VALUES (:id,:powerSup
 
 $statementPowerSupply = $connection->prepare($insertSupply);
 
-foreach ($supplys as $supply) {
-    $statement->bindValue(':name', $supply->getName(), PDO::PARAM_STR);
-    $statement->bindValue(':buyingPrice', $supply->getBuyingPrice() * 100, PDO::PARAM_INT);
-    $statement->bindValue(':isArchived', $supply->getIsArchived(), PDO::PARAM_BOOL);
-    $statement->bindValue(':description', $supply->getDescription(), PDO::PARAM_STR);
-    $statement->bindValue(':brand', $supply->getBrand(), PDO::PARAM_STR);
-    $statement->bindValue(':quantity', $supply->getQuantity(), PDO::PARAM_INT);
-    $statement->bindValue(':isDesktop', $supply->getIsDesktop(), PDO::PARAM_BOOL);
+    foreach ($supplys as $supply) {
+        $statement->bindValue(':name', $supply->getName(), PDO::PARAM_STR);
+        $statement->bindValue(':buyingPrice', $supply->getBuyingPrice() * 100, PDO::PARAM_INT);
+        $statement->bindValue(':isArchived', $supply->getIsArchived(), PDO::PARAM_BOOL);
+        $statement->bindValue(':description', $supply->getDescription(), PDO::PARAM_STR);
+        $statement->bindValue(':brand', $supply->getBrand(), PDO::PARAM_STR);
+        $statement->bindValue(':quantity', $supply->getQuantity(), PDO::PARAM_INT);
+        $statement->bindValue(':isDesktop', $supply->getIsDesktop(), PDO::PARAM_BOOL);
+        $statement->bindValue(':category', $category, PDO::PARAM_STR);
+    
+        $statement->execute();
 
     $statement->execute();
 
