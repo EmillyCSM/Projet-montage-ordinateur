@@ -5,7 +5,8 @@ $pages = [
     'logout' => "Déconnexion",
     'sign_in' => "Inscription",
     'add_piece' => "Ajout ou Modification pièce",
-    'list_pieces' => "liste des piéces",
+    'list_pieces' => "Liste des pièces",
+    'update_piece' => "Modifier des pièces",
 ];
 $page = 'home';
 

@@ -14,7 +14,7 @@ class Keyboard extends Piece
             $this->setId($data['id']);
         }
         if (!empty($data['isWireless'])) {
-            $this->setIsWireless(($data['isWireless']));
+            $this->setIsWireless($data['isWireless']);
 
         }
         if (!empty($data['isNumeric'])) {

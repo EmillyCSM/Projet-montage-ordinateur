@@ -13,7 +13,7 @@ class MotherBoard extends Piece
             $this->setId($data['id']);
         }
         if (!empty($data['isSocket'])) {
-            $this->setIsSocket(($data['isSocket']));
+            $this->setIsSocket($data['isSocket']);
 
         }
         if (!empty($data['format'])) {
