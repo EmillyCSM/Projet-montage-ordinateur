@@ -19,7 +19,7 @@ class Ram extends Piece
             $this->setCapacity($data['capacity']);
         }
         if (!empty($data['details'])) {
-            $this->setDetails($data['details']);
+            $this->setDetails(trim($data['details']));
         }
         if (!empty($data['barsNumber'])) {
             $this->setBarsNumber($data['barsNumber']);

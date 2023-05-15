@@ -13,7 +13,7 @@ class GraficCard extends Piece
             $this->setId($data['id']);
         }
         if (!empty($data['chipset'])) {
-            $this->setChipset($data['chipset']);
+            $this->setChipset(trim($data['chipset']));
 
         }
         if (!empty($data['memory'])) {

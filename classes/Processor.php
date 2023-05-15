@@ -18,7 +18,7 @@ class Processor extends Piece
             $this->setfrequencyCPU($data['frequencyCPU']);
         }
         if (!empty($data['chipsetCompatibility'])) {
-            $this->setChipsetCompatibility($data['chipsetCompatibility']);
+            $this->setChipsetCompatibility(trim($data['chipsetCompatibility']));
         }
         if (!empty($data['heartNumber'])) {
             $this->setHeartNumber($data['heartNumber']);

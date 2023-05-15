@@ -6,6 +6,25 @@ class Keyboard extends Piece
     protected bool $isNumeric = false;
     protected bool $isAzerty = false;
 
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['isWireless'])) {
+            $this->setIsWireless(($data['isWireless']));
+
+        }
+        if (!empty($data['isNumeric'])) {
+            $this->setIsNumeric($data['isNumeric']);
+        }
+        if (!empty($data['isAzerty'])) {
+            $this->setIsAzerty($data['isAzerty']);
+        }
+    }
+
     public function getId(): int
     {
         return $this->id;

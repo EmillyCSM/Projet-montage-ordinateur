@@ -57,8 +57,6 @@ $processors = [
         ->setDescription('Processeur 6-Core 12-Threads socket AM4 Cache L3 8 Mo Radeon Vega 7 Graphics TDP 65W '),
 ];
 
-
-
 $insertProcessor = "INSERT INTO `processor` (`id`,`frequencyCPU`, `heartNumber`,`chipsetCompatibility`) VALUES (:id, :frequencyCPU, :heartNumber, :chipsetCompatibility );";
 
 $statementProcessor = $connection->prepare($insertProcessor);
@@ -81,7 +79,6 @@ foreach ($processors as $processor) {
     $statementProcessor->bindValue(':heartNumber', $processor->getHeartNumber(), PDO::PARAM_INT);
 
     $statementProcessor->execute();
-
 }
 
 ?>

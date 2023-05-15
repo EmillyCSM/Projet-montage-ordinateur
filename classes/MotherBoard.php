@@ -5,6 +5,21 @@ class MotherBoard extends Piece
     protected bool $isSocket = false;
     protected string $format = '';
 
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        if (!empty($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (!empty($data['isSocket'])) {
+            $this->setIsSocket(($data['isSocket']));
+
+        }
+        if (!empty($data['format'])) {
+            $this->setFormat(trim($data['format']));
+        }
+    }
     public function getId(): int
     {
         return $this->id;
