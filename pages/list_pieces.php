@@ -127,7 +127,11 @@ $results = $statement->fetchAll();
             <th>Catégories</th>
             <th>Ordi bureau</th>
             <th>Modifier la pièce</th>
+<<<<<<< HEAD
             <th>Archiver ou supprimer</th>
+=======
+            <th>Supprimer ou archiver</th>
+>>>>>>> 6d8cc87 (Page liste visuel boutons)
         </tr>
         <?php foreach ($results as $result) { ?>
             <tr>
