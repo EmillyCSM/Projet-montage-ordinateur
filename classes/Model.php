@@ -8,8 +8,8 @@ class Model
 	protected int $computerCreationNumber = 0;
 	protected string $addDate = '';
 	protected string $description = '';
-	protected ?int $totalPrice = 0 ;
-
+	protected ?int $totalPrice = 0;
+	protected ?int $id_1 = null;
 
 	public function getId(): int
 	{
@@ -64,25 +64,36 @@ class Model
 		return $this;
 	}
 
-
-	public function getDescription(): string {
+	public function getDescription(): string
+	{
 		return $this->description;
 	}
-	
 
-	public function setDescription(string $description): self {
+	public function setDescription(string $description): self
+	{
 		$this->description = $description;
 		return $this;
 	}
 
-
-	public function getTotalPrice(): ?float {
-		return $this->totalPrice / 100 ;
+	public function getTotalPrice(): ?float
+	{
+		return $this->totalPrice / 100;
 	}
-	
 
-	public function setTotalPrice(int $totalPrice): self {
+	public function setTotalPrice(int $totalPrice): self
+	{
 		$this->totalPrice = $totalPrice * 100;
+		return $this;
+	}
+
+	public function getId_1(): ?int
+	{
+		return $this->id_1;
+	}
+
+	public function setId_1(?int $id_1): self
+	{
+		$this->id_1 = $id_1;
 		return $this;
 	}
 }

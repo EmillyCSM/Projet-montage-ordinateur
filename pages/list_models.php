@@ -1,14 +1,11 @@
 <?php
-/*
-nom du modèle
-nombre d'ordinateurs créés avec ce modèle
-prix total des pièces du modèle
-quantité en stock
-date d'ajout
-nombre de modèles créés avec cette pièce
-nombre de commentaires 
-*/
+$sqlModel = "SELECT * FROM `model`";
 
+$statement = $connection->prepare($sqlModel);
+
+$statement->execute();
+$statement->setFetchMode(PDO::FETCH_CLASS, Model::class);
+$results = $statement->fetchAll();
 ?>
 
 <section id="model_table" class="container">
@@ -22,5 +19,29 @@ nombre de commentaires
             <th>Date d'ajout</th>
             <th>Nombre de commentaires</th> <!-- (avec une indication si des commentaires n'ont pas été lus)  -->
         </tr>
+        <?php foreach ($results as $result) { ?>
+            <tr>
+                <td>
+                    <?php echo $result->getName(); ?>
+                </td>
+                <td>
+                    <?= $result->getComputerCreationNumber(); ?>
+                </td>
+                <td>
+                    ---€
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                    <?= $result->getAddDate(); ?>
+                </td>
+                <td>
+                    x
+                </td>
+                <?php
+        }
+        ?>
+
     </table>
 </section>

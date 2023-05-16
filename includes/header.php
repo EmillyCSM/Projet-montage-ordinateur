@@ -44,7 +44,7 @@ if (!isset($pageTitle)) {
                             <a class="nav-link" href="?page=add_piece">Création pièce</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Modèles</a>
+                            <a class="nav-link" href="?page=list_models">Modèles</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?page=model_form">Création modèle</a>
