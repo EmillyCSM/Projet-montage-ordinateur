@@ -8,8 +8,7 @@ $keyBoards = [
         ->setQuantity(12)
         ->setIsDesktop(1)
         ->setIsArchived(0)
-        ->setDescription('Connexion : Bluetooth v3.0 + HS
-        Dimensions (L x P x H) : 286 x 121 x 22.4 mm')
+        ->setDescription('Connexion : Bluetooth v3.0 + HS / Dimensions (L x P x H) : 286 x 121 x 22.4 mm')
         ->setIsWireless(1)
         ->setIsNumeric(0)
         ->setIsAzerty(1),
@@ -31,8 +30,7 @@ $keyBoards = [
         ->setQuantity(8)
         ->setIsDesktop(1)
         ->setIsArchived(0)
-        ->setDescription('Connexion : Bluetooth v3.0 + HS
-        Dimensions (L x P x H) : 286 x 121 x 22.4 mm')
+        ->setDescription('Connexion : Bluetooth v3.0 + HS / Dimensions (L x P x H) : 286 x 121 x 22.4 mm')
         ->setIsWireless(1)
         ->setIsNumeric(0)
         ->setIsAzerty(0),
@@ -79,7 +77,7 @@ foreach ($keyBoards as $keyboard) {
     $statementKeyboard->bindValue(':isWireless', $keyboard->getIsWireless(), PDO::PARAM_BOOL);
     $statementKeyboard->bindValue(':isNumeric', $keyboard->getIsNumeric(), PDO::PARAM_BOOL);
     $statementKeyboard->bindValue(':isAzerty', $keyboard->getIsAzerty(), PDO::PARAM_BOOL);
-    
+
 
     $statementKeyboard->execute();
     // fin insertion données fille : Keyboard

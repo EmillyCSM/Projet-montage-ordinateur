@@ -6,7 +6,7 @@ $pages = [
     'sign_in' => "Inscription",
     'add_piece' => "Ajout ou Modification pièce",
     'list_pieces' => "Liste des pièces",
-    'update_piece' => "Modifier des pièces",
+    'list_models' => "Liste des modèles",
 ];
 $page = 'home';
 
