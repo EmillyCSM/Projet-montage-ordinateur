@@ -14,13 +14,7 @@ $processors = [
         ->setDescription('Le processeur AMD Ryzen 5 5600X est taillé pour le jeu vidéo : 6 Cores, 12 Threads et GameCache 35 Mo.'),
     (new Processor())
         ->setfrequencyCPU(3.5)
-        ->setChipsetCompatibility(' Intel B660 Express,
-    Intel H610 Express,
-    Intel H670 Express,
-    Intel Z690 Express,
-    Intel Z790 Express,
-    Intel B760 Express,
-    Intel H770 Express')
+        ->setChipsetCompatibility(' Intel B660 Express, Intel H610 Express, Intel H670 Express, Intel Z690 Express, Intel Z790 Express, Intel B760 Express, Intel H770 Express')
         ->setHeartNumber(14)
         ->setName('Intel Core i5-13600KF')
         ->setBrand('intel')
@@ -31,9 +25,7 @@ $processors = [
         ->setDescription('Processeur 14-Core (6 Performance-Cores + 8 Efficient-Cores) 20-Threads Socket 1700 Cache L3 24 Mo 0.010 micron '),
     (new Processor())
         ->setfrequencyCPU(3.8)
-        ->setChipsetCompatibility('AMD A520,
-        AMD B550,
-        AMD X570')
+        ->setChipsetCompatibility('AMD A520, AMD B550, AMD X570')
         ->setHeartNumber(8)
         ->setName('GeForce RTX 4750')
         ->setBrand('MSI')
@@ -44,9 +36,7 @@ $processors = [
         ->setDescription('La MSI GeForce RTX 4750 VENUS 8G de mémoire GDDR6 adressée via une interface large de 128 bits. La mémoire a une vitesse de 14000 MHz.'),
     (new Processor())
         ->setfrequencyCPU(3.7)
-        ->setChipsetCompatibility('AMD A520,
-    AMD B550,
-    AMD X570 ')
+        ->setChipsetCompatibility('AMD A520, AMD B550, AMD X570 ')
         ->setHeartNumber(6)
         ->setName('AMD Ryzen 5 PRO 4650G')
         ->setBrand('AMD')

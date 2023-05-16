@@ -8,7 +8,7 @@ $rams = [
         ->setQuantity(17)
         ->setIsDesktop(1)
         ->setIsArchived(0)
-        ->setDescription('Kit Dual Channel 2 barrettes de RAM DDR4 PC4-25600 - CMK64GX4M2E3200C16')
+        ->setDescription('Kit Dual Channel 2 barrettes de RAM DDR4 PC4-25600 - MK64GX4M2E3200C16')
         ->setCapacity(64)
         ->setDetails('CMK64GX4M2E3200C16')
         ->setBarsNumber(2),

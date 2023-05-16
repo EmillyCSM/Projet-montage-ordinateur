@@ -127,7 +127,7 @@ $results = $statement->fetchAll();
             <th>Catégories</th>
             <th>Ordi bureau</th>
             <th>Modifier la pièce</th>
-            <th>Supprimer ou archiver</th>
+            <th>Archiver ou supprimer</th>
         </tr>
         <?php foreach ($results as $result) { ?>
             <tr>
