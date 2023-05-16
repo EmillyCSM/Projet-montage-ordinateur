@@ -4,7 +4,7 @@
         rows="6"><?= $piece->getDescription(); ?></textarea>
 </div>
 <div class="">
-    <button type="submit" class="btn btn-dark w-25 m-auto">Ajouter</button>
+    <button type="submit" class="btn btn-dark w-25 m-auto">Valider</button>
 </div>
 
 </div>
