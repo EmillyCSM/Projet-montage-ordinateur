@@ -6,7 +6,7 @@ if (!empty($_GET['typePiece']) && array_key_exists($_GET['typePiece'], Piece::CA
     $className = ucfirst($type);
     $piece = new $className($_POST);
 
-    // si tu as un id
+    // lorqu'on a un id
     if (!empty($_GET['id'])) {
         $sql = "SELECT * FROM piece
         INNER JOIN $type ON $type.id = piece.id
@@ -33,16 +33,13 @@ if (!empty($_POST)) {
         if (empty($item) && !($item == 0)) {
             $errors = true;
         }
-
     });
-
 
     if ($errors) { ?>
         <div class="alert alert-danger" role="alert">
             <?php echo "Merci de remplir tous les champs."; ?>
         </div>
     <?php }
-
 
     if (!isset($_GET['id'])) {
 
@@ -175,7 +172,6 @@ if (!empty($_POST)) {
         $statementScreen->execute();
         // fin insertion données fille : Screen
     } else if ($type == 'supply') {
-
         $statementPowerSupply = $connection->prepare($insertSupply);
 
         $statementPowerSupply->bindValue(':id', $id, PDO::PARAM_INT);
@@ -185,7 +181,6 @@ if (!empty($_POST)) {
         // fin insertion données fille : Supply
     }
     header('Location: index.php?page=list_pieces');
-
 }
 
 ?>
