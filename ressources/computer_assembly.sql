@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `model` (
   `isDesktop` tinyint(1) DEFAULT NULL,
   `computerCreationNumber` int DEFAULT NULL,
   `addDate` date DEFAULT NULL,
+  `description` text COLLATE utf8mb4_general_ci,
   `id_1` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Model_AK` (`name`),
