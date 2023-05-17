@@ -56,7 +56,7 @@ $statement->execute($params);
 $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
 $results = $statement->fetchAll();
 ?>
-</section>
+
 <section id="filter">
     <form method="post" class="container">
         <h3>Filtres</h3>
@@ -111,7 +111,7 @@ $results = $statement->fetchAll();
                 <option value="buyingPrice">Prix</option>
                 <option value="id">Date d'ajout</option>
             </select>
-            <button type="submit" class="btn btn-dark m-auto w-25">Filter</button>
+            <button type="submit" class="btn btn-dark m-auto w-25">Valider</button>
         </div>
     </form>
 </section>
@@ -197,3 +197,4 @@ $results = $statement->fetchAll();
             </tr>
         <?php } ?>
     </table>
+</section>

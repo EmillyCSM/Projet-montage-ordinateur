@@ -44,7 +44,7 @@ if (!empty($_POST)) {
     if (!isset($_GET['id'])) {
 
         $insertPiece = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`, `category`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description, :category);";
-        $insertGarficCard = "INSERT INTO INSERT INTO graficcard (`id`,`chipset`, `memory`) VALUES (:id, :chipset, :memory);";
+        $insertGarficCard = "INSERT INTO  graficcard (`id`,`chipset`, `memory`) VALUES (:id, :chipset, :memory);";
         $insertHardDisk = "INSERT INTO `harddisk`(`id`, `isSSD`, `capacity`) VALUES (:id, :isSSD, :capacity)";
         $insertKeyboard = "INSERT INTO `keyboard`(`id`, `isWireless`, `isNumeric`, `isAzerty`) VALUES (:id, :isWireless, :isNumeric, :isAzerty);";
         $insertMotherBoard = "INSERT INTO `motherboard`(`id`, `isSocket`, `format`) VALUES (:id, :isSocket, :format)";

@@ -7,6 +7,7 @@ $pages = [
     'add_piece' => "Ajout ou Modification pièce",
     'list_pieces' => "Liste des pièces",
     'list_models' => "Liste des modèles",
+    'modele_form' => "Ajout/modification modèle",
 ];
 $page = 'home';
 

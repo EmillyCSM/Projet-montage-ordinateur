@@ -7,6 +7,7 @@ class Model
 	protected bool $isDesktop = false;
 	protected int $computerCreationNumber = 0;
 	protected string $addDate = '';
+	protected string $description = '';
 
 
 	public function getId(): int
@@ -59,6 +60,17 @@ class Model
 	public function setAddDate(string $addDate): self
 	{
 		$this->addDate = $addDate;
+		return $this;
+	}
+
+
+	public function getDescription(): string {
+		return $this->description;
+	}
+	
+
+	public function setDescription(string $description): self {
+		$this->description = $description;
 		return $this;
 	}
 }
