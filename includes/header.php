@@ -47,7 +47,7 @@ if (!isset($pageTitle)) {
                             <a class="nav-link" href="#">Modèles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Création modèle</a>
+                            <a class="nav-link" href="?page=model_form">Création modèle</a>
                         </li>
                     </ul>
                     <?php
