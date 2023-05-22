@@ -1,5 +1,4 @@
 <?php
-
 class Model
 {
 	protected int $id;
@@ -80,7 +79,7 @@ class Model
 		return $this->totalPrice / 100;
 	}
 
-	public function setTotalPrice(int $totalPrice): self
+	public function setTotalPrice(?float $totalPrice): self
 	{
 		$this->totalPrice = $totalPrice * 100;
 		return $this;
