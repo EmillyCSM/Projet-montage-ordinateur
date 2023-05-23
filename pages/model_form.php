@@ -9,7 +9,7 @@ $results = $statement->fetchAll();
 
 // envoie des données en BDD
 $add_model = "INSERT INTO `model`(`name`, `isDesktop`, `description`, `id_1`) VALUES ( :name, :isDesktop, :description, :id_1);";
-$statement = $connection->prepare($add_model);
+$statementInsert = $connection->prepare($add_model);
 
 if (!empty($_POST)) {
     $errors = false;
@@ -55,11 +55,11 @@ if (!empty($_POST)) {
         <?php }
     }
     if (!$errors) {
-        $statement->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
-        $statement->bindValue(':isDesktop', $_POST['isDesktop'], PDO::PARAM_BOOL);
-        $statement->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-        $statement->bindValue(':id_1', $_SESSION['user']->getId(), PDO::PARAM_INT);
-        $statement->execute();
+        $statementInsert->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
+        $statementInsert->bindValue(':isDesktop', $_POST['isDesktop'], PDO::PARAM_BOOL);
+        $statementInsert->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+        $statementInsert->bindValue(':id_1', $_SESSION['user']->getId(), PDO::PARAM_INT);
+        $statementInsert->execute();
 
         // récupérer id modèle
         $id_model = $connection->lastInsertId();
@@ -114,7 +114,6 @@ if (!empty($_POST)) {
                                     <option value="<?= $result->getId(); ?>"><?= $result->getName(); ?></option>
                                 <?php }
                             } ?>
-
                         </select>
                         <label for="<?= $key ?>_quantity" class="mb-2">Quantité <?= $category ?></label>
                         <input type="number" name="<?= $key ?>_quantity" id="<?= $key ?>_quantity" class="form-control mb-3"
