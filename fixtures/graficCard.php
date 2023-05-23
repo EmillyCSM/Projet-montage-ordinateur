@@ -2,7 +2,7 @@
 $category = 'graficCard';
 $graficCards = [
     (new GraficCard())
-        ->setName('GeForce L 4750')
+        ->setName('GeForce L- 4750')
         ->setBrand('MSI')
         ->setBuyingPrice(388.00)
         ->setQuantity(4)
@@ -12,7 +12,7 @@ $graficCards = [
         ->setChipset('NVIDIA GeForce RTX 4750')
         ->setMemory(10),
     (new GraficCard())
-        ->setName('GeForce D 5885')
+        ->setName('GeForce D- 5885')
         ->setBrand('Gigabyte')
         ->setBuyingPrice(655.99)
         ->setQuantity(4)
@@ -22,7 +22,7 @@ $graficCards = [
         ->setChipset('NVIDIA GeForce RTX 5885')
         ->setMemory(12),
     (new GraficCard())
-        ->setName('Radeon L 5555')
+        ->setName('Radeon L- 5555')
         ->setBrand('ASUS')
         ->setBuyingPrice(299.95)
         ->setQuantity(6)

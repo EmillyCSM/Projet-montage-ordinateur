@@ -1,11 +1,34 @@
 <?php
-// affichage des pièce dns le formulaire
+// affichage des pièce dans le formulaire
 $sql = "SELECT * FROM `piece` WHERE isArchived = :isArchived";
 $statement = $connection->prepare($sql);
 $statement->bindValue(':isArchived', false, PDO::PARAM_BOOL);
 $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
 $statement->execute();
-$results = $statement->fetchAll();
+$resultsPieces = $statement->fetchAll();
+
+// En cas de modification 
+if (!empty($_GET['id'])) {
+    $id = $_GET['id'];
+    // Recupération les information du modèle à modifier
+    $sqlMD = "SELECT * FROM model WHERE model.id = :id";
+    $statementMD = $connection->prepare($sqlMD);
+    $statementMD->bindValue(':id', $id, PDO::PARAM_INT);
+    $statementMD->execute();
+    $statementMD->setFetchMode(PDO::FETCH_CLASS, Model::class);
+    $model = $statementMD->fetch();
+
+    // Récupération de toutes les pièces liées à ce modèle 
+    // on remplace la piece.quantity par compose.quantity 
+    $sqlPiecesCompose = "SELECT piece.*, compose.quantity AS quantity FROM piece 
+    RIGHT JOIN compose ON piece.id = compose.id_1 
+    WHERE compose.id = :id;";
+    $statementPieces = $connection->prepare($sqlPiecesCompose);
+    $statementPieces->bindValue(':id', $id, PDO::PARAM_INT);
+    $statementPieces->setFetchMode(PDO::FETCH_CLASS, Piece::class);
+    $statementPieces->execute();
+    $piecesCompose = $statementPieces->fetchAll();
+}
 
 // envoie des données en BDD
 $add_model = "INSERT INTO `model`(`name`, `isDesktop`, `description`, `id_1`) VALUES ( :name, :isDesktop, :description, :id_1);";
@@ -17,6 +40,7 @@ if (!empty($_POST)) {
     if (empty(trim($_POST['name']))) {
         $errors = true;
     }
+    // Vérification que toutes les pièces ont été choisies
     foreach (Piece::CATEGORIES as $key => $category) {
         if (empty($_POST[$key])) {
             $errors = true;
@@ -27,6 +51,12 @@ if (!empty($_POST)) {
         $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
         $statement->execute();
         $result = $statement->fetch();
+
+        // echo "****RESULTATS 2eme Requette ****";
+        var_dump($result);
+        var_dump($_POST);
+        echo "******* " . $result->getIsDesktop();
+
         if ($_POST['isDesktop'] != $result->getIsDesktop()) {
             $errors = true; ?>
             <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -68,10 +98,7 @@ if (!empty($_POST)) {
             $id = $_POST[$key];
 
             $quantity = $_POST[$key . '_quantity'];
-            echo "id";
-            var_dump($id);
-            echo "quantity";
-            var_dump($quantity);
+
             $add_compose = "INSERT INTO `compose`(`id`, `id_1`, `quantity`) VALUES (:id,:id_1,:quantity);";
             $statement = $connection->prepare($add_compose);
             $statement->bindValue(':id', $id_model, PDO::PARAM_INT);
@@ -79,37 +106,39 @@ if (!empty($_POST)) {
             $statement->bindValue(':quantity', $quantity, PDO::PARAM_INT);
             $statement->execute();
         }
+        header('Location: index.php?page=list_models');
     }
 }
 ?>
+
+<!-- FORMULAIRE -->
 <section id="model_form" class="container">
     <h1 class="mt-4 mb-4">Formulaire de création d'un modèle</h1>
     <form method="post" class="row">
         <div class="row gap-4 ">
-        <div class="col-5 form-group">
-                    <label for="isDesktop" class="mb-2">Type</label>
-                    <select name="isDesktop" id="isDesktop" class="form-select" required>
-                        <option value="">- type -</option>
-                        <option value="0" > Ordinateur portable
-                        </option>
-                        <option value="1">Tour</option>
-                    </select>
-                </div>
-                <div class="col-5 form-group">
-                    <label for="name" class="mb-2">Nom du modèle</label>
-                    <input type="text" name="name" class="form-control" required>
-                </div>
+            <div class="col-5 form-group">
+                <label for="isDesktop" class="mb-2">Type</label>
+                <select name="isDesktop" id="isDesktop" class="form-select" required>
+                    <option value="">- Type -</option>
+                    <option value="0">Ordinateur portable</option>
+                    <option value="1">Tour</option>
+                </select>
+            </div>
+            <div class="col-5 form-group">
+                <label for="name" class="mb-2">Nom du modèle</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
 
             <div class="row col-12 gap-4 justify-content-center">
                 <?php
                 foreach (Piece::CATEGORIES as $key => $category) { ?>
-                    <div class=" col-3 form-group ">
+                    <div class="col-5 col-md-3 form-group ">
                         <label for="<?= $key ?>" class="mb-2"><?= $category ?></label>
-                        <select name="<?= $key ?>" id="<?= $key ?>" class="form-select" required>
+                        <select name="<?= $key ?>" id="<?= $key ?>" class="form-select">
                             <option value="">-
                                 <?= $category ?> -
                             </option>
-                            <?php foreach ($results as $result) {
+                            <?php foreach ($resultsPieces as $result) {
                                 if ($result->getCategory() == $key) { ?>
                                     <option value="<?= $result->getId(); ?>"><?= $result->getName(); ?></option>
                                 <?php }

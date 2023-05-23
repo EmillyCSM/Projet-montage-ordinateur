@@ -9,13 +9,18 @@ $users = [
     (new User())
         ->setName('Emilly MESQUITA')
         ->setEmail('emilly@gmail.com')
-        ->setIsConceptor(0)
+        ->setIsConceptor(1)
         ->setPassword('emilly123'),
     (new User())
         ->setName('Rémi JARJAT')
         ->setEmail('remi@gmail.com')
-        ->setIsConceptor(0)
+        ->setIsConceptor(1)
         ->setPassword('remi123'),
+    (new User())
+        ->setName('Monteur Mo')
+        ->setEmail('monteur@gmail.com')
+        ->setIsConceptor(0)
+        ->setPassword('monteur123'),
 ];
 
 $insertUsers = "INSERT INTO `users`(`name`, `email`, `password`, `isConceptor`) VALUES (:name, :email, :password, :isConceptor)";

@@ -24,8 +24,7 @@ if (!empty($_GET['typePiece']) && array_key_exists($_GET['typePiece'], Piece::CA
 if (!empty($_POST)) {
     // Mettre le résultat dans un objet $className
     $piece = new $className($_POST);
-    var_dump($_POST);
-    var_dump($piece);
+
     array_walk($_POST, function ($value, $key) use (&$errors) {
         $item = $value;
 
