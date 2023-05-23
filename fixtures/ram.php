@@ -2,7 +2,7 @@
 $category = 'ram';
 $rams = [
     (new Ram())
-        ->setName('Corsair Vengeance LPX Series Low Profile')
+        ->setName('Corsair D- Vengeance LPX Series Low Profile')
         ->setBrand('Corsair')
         ->setBuyingPrice(237.95)
         ->setQuantity(17)
@@ -13,7 +13,7 @@ $rams = [
         ->setDetails('CMK64GX4M2E3200C16')
         ->setBarsNumber(2),
     (new Ram())
-        ->setName('Kingston FURY Beast 32 Go ')
+        ->setName('Kingston D- FURY Beast 32 Go ')
         ->setBrand('Kingston ')
         ->setBuyingPrice(159.95)
         ->setQuantity(3)
@@ -24,7 +24,7 @@ $rams = [
         ->setDetails('Kingston FURY Beast 32 Go (2 x 16 Go) DDR5 5600 MHz CL4 DDR5 5600 MHz')
         ->setBarsNumber(2),
     (new Ram())
-        ->setName('G.Skill NT')
+        ->setName('G.Skill L- 45')
         ->setBrand('MSI')
         ->setBuyingPrice(48.95)
         ->setQuantity(6)
@@ -35,7 +35,7 @@ $rams = [
         ->setDetails('G.Skill NT Series 16 Go (2 x 8 Go) DDR3 1600 MHz CL11')
         ->setBarsNumber(2),
     (new Ram())
-        ->setName('G.Skill NT ')
+        ->setName('G.Skill D- NT ')
         ->setBrand('G.Skill')
         ->setBuyingPrice(15.25)
         ->setQuantity(8)

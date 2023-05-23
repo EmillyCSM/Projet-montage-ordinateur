@@ -2,7 +2,7 @@
 $category = 'keyboard';
 $keyBoards = [
     (new Keyboard())
-        ->setName('Targus Clavier Bluetooth (AZERTY Français)')
+        ->setName('Targus D- Clavier Bluetooth (AZERTY Français)')
         ->setBrand('Heden')
         ->setBuyingPrice(29.99)
         ->setQuantity(12)
@@ -13,7 +13,7 @@ $keyBoards = [
         ->setIsNumeric(0)
         ->setIsAzerty(1),
     (new Keyboard())
-        ->setName('Gustar filaire (AZERTY Français)')
+        ->setName('Gustar D- filaire (AZERTY Français)')
         ->setBrand('Heden')
         ->setBuyingPrice(39.99)
         ->setQuantity(11)
@@ -24,7 +24,7 @@ $keyBoards = [
         ->setIsNumeric(1)
         ->setIsAzerty(1),
     (new Keyboard())
-        ->setName('Novur Clavier Bluetooth (QWERTZ USA)')
+        ->setName('Novur D- Clavier Bluetooth (QWERTZ USA)')
         ->setBrand('INOVU')
         ->setBuyingPrice(19.99)
         ->setQuantity(8)
@@ -35,7 +35,7 @@ $keyBoards = [
         ->setIsNumeric(0)
         ->setIsAzerty(0),
     (new Keyboard())
-        ->setName('Freekey (QWERTZ UK)')
+        ->setName('Freekey L- (QWERTZ UK)')
         ->setBrand('NUNO')
         ->setBuyingPrice(24.99)
         ->setQuantity(12)
@@ -46,7 +46,7 @@ $keyBoards = [
         ->setIsNumeric(0)
         ->setIsAzerty(0),
     (new Keyboard())
-        ->setName('Keyfree (AZERTY Français)')
+        ->setName('Keyfree L- (AZERTY Français)')
         ->setBrand('NUNO')
         ->setBuyingPrice(29.99)
         ->setQuantity(5)

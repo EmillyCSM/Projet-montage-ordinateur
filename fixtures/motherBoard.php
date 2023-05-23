@@ -3,7 +3,7 @@ $category = 'motherBoard';
 
 $motherBoards = [
     (new MotherBoard())
-        ->setName('ASRock A520M-HVS')
+        ->setName('ASRock L- A520M-HVS')
         ->setBrand('ASRock')
         ->setBuyingPrice(74.95)
         ->setQuantity(7)
@@ -13,7 +13,7 @@ $motherBoards = [
         ->setIsSocket(0)
         ->setFormat('Micro ATX'),
     (new MotherBoard())
-        ->setName('ASRock A620M-HVS Socket')
+        ->setName('ASRock D- A620M-HVS Socket')
         ->setBrand('ASRock')
         ->setBuyingPrice(129.95)
         ->setQuantity(5)
@@ -23,7 +23,7 @@ $motherBoards = [
         ->setIsSocket(1)
         ->setFormat('Micro ATX'),
     (new MotherBoard())
-        ->setName('OSLAN A520M-HVS')
+        ->setName('OSLAN L- A520M-HVS')
         ->setBrand('OSLAN')
         ->setBuyingPrice(64.95)
         ->setQuantity(7)
@@ -33,7 +33,7 @@ $motherBoards = [
         ->setIsSocket(0)
         ->setFormat('ATX'),
     (new MotherBoard())
-        ->setName('OSLAN A620M-HVS Socket')
+        ->setName('OSLAN D- A620M-HVS Socket')
         ->setBrand('OSLAN')
         ->setBuyingPrice(199.95)
         ->setQuantity(4)
