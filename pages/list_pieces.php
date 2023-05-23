@@ -168,7 +168,8 @@ $results = $statement->fetchAll();
                     <?php echo ($result->getIsDesktop() ? 'Oui' : 'Non'); ?>
                 </td>
                 <td>
-                    <a href="?page=add_piece&id=<?php echo $result->getId(); ?>" class="btn btn-secondary p-1">
+                    <a href="?page=add_piece&id=<?php echo $result->getId(); ?>&typePiece=<?php echo $result->getCategory(); ?>"
+                        class="btn btn-secondary p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen"
                             viewBox="0 0 16 16">
                             <path
