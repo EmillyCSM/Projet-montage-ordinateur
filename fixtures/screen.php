@@ -3,25 +3,25 @@ $category = 'screen';
 
 $screens = [
     (new Screen())
-        ->setName('Lenovo ThinkVision')
+        ->setName('Lenovo D- ThinkVision')
         ->setBrand('Lenovo')
         ->setBuyingPrice(319.94)
         ->setQuantity(20)
         ->setIsDesktop(1)
         ->setIsArchived(0)
         ->setDescription('1920 x 1200 pixels - 4 ms (gris à gris) - Format 16/10 - Dalle IPS - Pivot - HDMI/DisplayPort/USB-C - Hub USB 3.0 - Haut-parleurs - Noir')
-        ->setSize(25),
+        ->setSize(27),
     (new Screen())
-        ->setName('UltraGear 27GP850P-B ')
+        ->setName('UltraGear L- 27GP850P-B ')
         ->setBrand('LG')
         ->setBuyingPrice(329.95)
         ->setQuantity(10)
-        ->setIsDesktop(1)
+        ->setIsDesktop(0)
         ->setIsArchived(0)
         ->setDescription('2560 x 1440 pixels - 1 ms (gris à gris) - Format 16/9 - Dalle Nano-IPS - 165 Hz (180 Hz OC) - DisplayHDR 400 - Compatible G-Sync / FreeSync Premium - HDMI/DisplayPort - Hub USB 3.0 - Pivot - Noir')
-        ->setSize(27),
+        ->setSize(17),
     (new Screen())
-        ->setName('ROG Swift PG27AQDM ')
+        ->setName('ROG D- PG27AQDM ')
         ->setBrand('ASUS')
         ->setBuyingPrice(1199.95)
         ->setQuantity(9)
@@ -30,7 +30,7 @@ $screens = [
         ->setDescription('2560 x 1440 pixels - 0.03 ms (gris à gris) - Format 16/9 - Dalle OLED - 240 Hz - NVIDIA G-SYNC Compatible / FreeSync Premium - HDR10 - DisplayPort/HDMI - Noir')
         ->setSize(27),
     (new Screen())
-        ->setName('ViewSonic 31.5" LED - VA3209-2K-MHD ')
+        ->setName('ViewSonic D- ')
         ->setBrand('ViewSonic ')
         ->setBuyingPrice(249.95)
         ->setQuantity(26)

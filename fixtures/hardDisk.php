@@ -2,7 +2,7 @@
 $category = 'hardDisk';
 $hardDisks = [
     (new HardDisk())
-        ->setName('Jupiter 304 1 To')
+        ->setName('Jupiter L- 304 1 To')
         ->setBrand('Toshiba')
         ->setBuyingPrice(59.95)
         ->setQuantity(6)
@@ -12,7 +12,7 @@ $hardDisks = [
         ->setIsSSD(0)
         ->setCapacity(1000),
     (new HardDisk())
-        ->setName('Neptune 58 4 To')
+        ->setName('Neptune D- 58 4 To')
         ->setBrand('Seagate Technology')
         ->setBuyingPrice(199.59)
         ->setQuantity(8)
@@ -22,7 +22,7 @@ $hardDisks = [
         ->setIsSSD(0)
         ->setCapacity(4000),
     (new HardDisk())
-        ->setName('Jupiter 484 2 To')
+        ->setName('Jupiter L- 484 2 To')
         ->setBrand('Toshiba')
         ->setBuyingPrice(89.95)
         ->setQuantity(7)
@@ -32,7 +32,7 @@ $hardDisks = [
         ->setIsSSD(0)
         ->setCapacity(2000),
     (new HardDisk())
-        ->setName('Mercure SSD 1 To')
+        ->setName('Mercure D- SSD 1 To')
         ->setBrand('Samsung')
         ->setBuyingPrice(124.99)
         ->setQuantity(6)
@@ -42,7 +42,7 @@ $hardDisks = [
         ->setIsSSD(1)
         ->setCapacity(1000),
     (new HardDisk())
-        ->setName('Vénus SSD 960 Go')
+        ->setName('Vénus L- SSD 960 Go')
         ->setBrand('Samsung')
         ->setBuyingPrice(85.55)
         ->setQuantity(8)
