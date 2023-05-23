@@ -115,6 +115,7 @@ $results = $statement->fetchAll();
         </div>
     </form>
 </section>
+<!-- Affichage du tableau -->
 <section id="tableau_piece" class="container">
     <h1>Tableau des pièces</h1>
     <table>
@@ -152,7 +153,7 @@ $results = $statement->fetchAll();
                     </a>
                 </td>
                 <td class="p-1">
-                    <?php echo priceFormat($result->getBuyingPrice() / 100) . "€"; ?>
+                    <?php echo priceFormat($result->getBuyingPrice()) . "€"; ?>
                 </td>
                 <td>
                     <?php echo 0; ?>

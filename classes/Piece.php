@@ -87,12 +87,12 @@ class Piece
 
     public function getBuyingPrice(): float
     {
-        return $this->buyingPrice;
+        return $this->buyingPrice / 100;
     }
 
     public function setBuyingPrice(float $buyingPrice): self
     {
-        $this->buyingPrice = $buyingPrice;
+        $this->buyingPrice = $buyingPrice * 100;
         return $this;
     }
 

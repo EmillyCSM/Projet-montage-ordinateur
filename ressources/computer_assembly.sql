@@ -48,8 +48,9 @@ CREATE TABLE IF NOT EXISTS `comments` (
 
 DROP TABLE IF EXISTS `compose`;
 CREATE TABLE IF NOT EXISTS `compose` (
-  `id` int NOT NULL,
+  `id` int NOT NULL, 
   `id_1` int NOT NULL,
+  `quantity` int NOT NULL,
   PRIMARY KEY (`id`,`id_1`),
   KEY `compose_Piece_1_FK` (`id_1`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
