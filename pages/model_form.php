@@ -129,8 +129,16 @@ if (!empty($_POST)) {
         if (isset($_GET['id'])) {
             $id_model = $_GET['id'];
             // Suppression de la table COMPOSE les éléments de l'ID afin de les insérer à jour
-            $connection->exec('DELETE FROM `compose` WHERE id = :id');
-            // $connection->exec('TRUNCATE TABLE `computer_assembly`.`compose` WITH (PARTITIONS (:id))'); // Faire en truncate pour que ça aille plus vite ? 
+
+            /* *** Erreur lors de l'execution avec $connection->exec car je ne sais pas insérer l'id
+            $connection->exec('DELETE FROM `compose` WHERE id = :id'); 
+            Donc j'ai delete compose de la manière longue */
+
+            $delete = "DELETE FROM `compose` WHERE id = :id";
+            $statementDelete = $connection->prepare($delete);
+            $statementDelete->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+            $statementDelete->execute();
+
         } else {
             $id_model = $connection->lastInsertId();
         }
@@ -161,9 +169,9 @@ if (!empty($_POST)) {
                 <label for="isDesktop" class="mb-2">Type</label>
                 <select name="isDesktop" id="isDesktop" class="form-select" required>
                     <option value="">- Type -</option>
-                    <option value="0" <?= !$model->getIsDesktop() ? 'selected' : ''; ?>>Ordinateur portable</option>
+                    <option value="0" <?= $model->getIsDesktop() ? 'selected' : ''; ?>>Ordinateur portable</option>
 
-                    <option value="1" <?= !$model->getIsDesktop() ? 'selected' : ''; ?>>Tour</option>
+                    <option value="1" <?= $model->getIsDesktop() ? 'selected' : ''; ?>>Tour</option>
                 </select>
             </div>
             <div class="col-5 form-group">
@@ -184,8 +192,6 @@ if (!empty($_POST)) {
                                 if ($result->getCategory() == $key) { ?>
                                     <option value="<?= $result->getId(); ?>" <?php if (isset($piecesCompose[$result->getId()])) {
                                           echo 'selected';
-                                      } else {
-                                          echo '';
                                       } ?>>
                                         <?= $result->getName(); ?></option>
                                 <?php }
