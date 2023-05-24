@@ -104,7 +104,7 @@ if (!empty($_POST)) {
             </div>
         <?php }
     }
-    var_dump($_POST);
+
     if (!$errors) {
         // envoie des données en BDD
         if (!isset($_GET['id'])) {
