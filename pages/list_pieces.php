@@ -138,11 +138,11 @@ $results = $statement->fetchAll();
                 <td>
                     <?php echo $result->getBrand(); ?>
                 </td>
-                <td class="d-flex justify-content-center">
-                    <span class="p-1">
+                <td>
+                    <span>
                         <?php echo $result->getQuantity(); ?>
                     </span>
-                    <a href="#" class="btn btn-secondary p-1 ">
+                    <a href="?page=update_stock_piece&id=<?php echo $result->getId(); ?>" class="btn btn-secondary p-1 ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-repeat" viewBox="0 0 16 16">
                             <path
