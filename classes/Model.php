@@ -9,6 +9,7 @@ class Model
 	protected string $description = '';
 	protected ?int $totalPrice = 0;
 	protected ?int $id_1 = null;
+	protected bool $isArchived = false;
 
 	public function getId(): int
 	{
@@ -93,6 +94,17 @@ class Model
 	public function setId_1(?int $id_1): self
 	{
 		$this->id_1 = $id_1;
+		return $this;
+	}
+
+	public function getIsArchived(): bool
+	{
+		return $this->isArchived;
+	}
+
+	public function setIsArchived(bool $isArchived): self
+	{
+		$this->isArchived = $isArchived;
 		return $this;
 	}
 }

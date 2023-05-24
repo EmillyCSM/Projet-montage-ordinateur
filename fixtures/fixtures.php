@@ -20,6 +20,7 @@ TRUNCATE TABLE `computer_assembly`.`supply`;
 TRUNCATE TABLE `computer_assembly`.`users`;
 SET FOREIGN_KEY_CHECKS=1;
 '); // Pour effacer la table précedente avant d'ajouter la nouvelle. 
+// On met les Foreign_Key à 0 afin d'avoir la suppression en cascade 
 
 $insertPiece = "INSERT INTO `piece`(`name`, `brand`, `buyingPrice`, `quantity`, `isDesktop`, `isArchived`, `description`, `category`) VALUES (:name, :brand, :buyingPrice, :quantity, :isDesktop, :isArchived, :description, :category);";
 $statement = $connection->prepare($insertPiece);

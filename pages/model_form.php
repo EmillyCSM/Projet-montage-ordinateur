@@ -1,5 +1,5 @@
 <?php
-// affichage des pièce dans le formulaire
+// affichage des pièce dans le formulaire qui ne sont pas archivée
 $sql = "SELECT * FROM `piece` WHERE isArchived = :isArchived";
 $statement = $connection->prepare($sql);
 $statement->bindValue(':isArchived', false, PDO::PARAM_BOOL);
@@ -30,34 +30,42 @@ if (!empty($_GET['id'])) {
     $piecesCompose = $statementPieces->fetchAll();
 }
 
-// envoie des données en BDD
-$add_model = "INSERT INTO `model`(`name`, `isDesktop`, `description`, `id_1`) VALUES ( :name, :isDesktop, :description, :id_1);";
-$statementInsert = $connection->prepare($add_model);
-
 if (!empty($_POST)) {
     $errors = false;
 
     if (empty(trim($_POST['name']))) {
         $errors = true;
     }
+    $piecesCompose = [];
     // Vérification que toutes les pièces ont été choisies
     foreach (Piece::CATEGORIES as $key => $category) {
         if (empty($_POST[$key])) {
             $errors = true;
         }
+
         $sqlPiece = "SELECT * FROM `piece` WHERE id = :id ;";
         $statement = $connection->prepare($sqlPiece);
         $statement->bindValue(':id', $_POST[$key], PDO::PARAM_INT);
         $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
         $statement->execute();
         $result = $statement->fetch();
+        // Stockage de chaque pièce renseignée dans le tableau $piecesCompose
+        $piecesCompose[] = $result;
 
-        // echo "****RESULTATS 2eme Requette ****";
-        var_dump($result);
-        var_dump($_POST);
-        echo "******* " . $result->getIsDesktop();
-
-        if ($_POST['isDesktop'] != $result->getIsDesktop()) {
+        if (!$result) {
+            $errors = true; ?>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <div>
+                    Merci de remplir la pièce de type
+                    <?= $category; ?>.
+                </div>
+            </div>
+        <?php } elseif ($_POST['isDesktop'] != $result->getIsDesktop()) {
             $errors = true; ?>
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -69,8 +77,7 @@ if (!empty($_POST)) {
                     Les pièces choisies ne sont pas compatibles!
                 </div>
             </div>
-        <?php }
-        if (empty($_POST[$key . '_quantity']) || $_POST[$key . '_quantity'] < 0) {
+        <?php } elseif (empty($_POST[$key . '_quantity']) || $_POST[$key . '_quantity'] < 0) {
             $errors = true; ?>
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -84,7 +91,21 @@ if (!empty($_POST)) {
             </div>
         <?php }
     }
+
     if (!$errors) {
+        // envoie des données en BDD
+        if (!isset($_GET['id'])) {
+            $add_model = "INSERT INTO `model`(`name`, `isDesktop`, `description`, `id_1`) VALUES ( :name, :isDesktop, :description, :id_1);";
+        } else {
+            $add_model = "UPDATE `model` SET `name`=:name,`isDesktop`= :isDesktop,`description`=:description,`id_1`= :id_1 WHERE `id` = :id";
+        }
+
+        $statementInsert = $connection->prepare($add_model);
+
+        if (isset($_GET['id'])) {
+            $statementInsert->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+        }
+
         $statementInsert->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
         $statementInsert->bindValue(':isDesktop', $_POST['isDesktop'], PDO::PARAM_BOOL);
         $statementInsert->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
@@ -92,7 +113,14 @@ if (!empty($_POST)) {
         $statementInsert->execute();
 
         // récupérer id modèle
-        $id_model = $connection->lastInsertId();
+        if (isset($_GET['id'])) {
+            $id_model = $_GET['id'];
+            // Suppression de la table COMPOSE les éléments de l'ID afin de les insérer à jour
+            $connection->exec('DELETE FROM `compose` WHERE id = :id');
+            // $connection->exec('TRUNCATE TABLE `computer_assembly`.`compose` WITH (PARTITIONS (:id))'); // Faire en truncate pour que ça aille plus vite ? 
+        } else {
+            $id_model = $connection->lastInsertId();
+        }
 
         foreach (Piece::CATEGORIES as $key => $category) {
             $id = $_POST[$key];
@@ -120,13 +148,14 @@ if (!empty($_POST)) {
                 <label for="isDesktop" class="mb-2">Type</label>
                 <select name="isDesktop" id="isDesktop" class="form-select" required>
                     <option value="">- Type -</option>
-                    <option value="0">Ordinateur portable</option>
-                    <option value="1">Tour</option>
+                    <option value="0" <?= $model->getIsDesktop() ? 'selected' : ''; ?>>Ordinateur portable</option>
+
+                    <option value="1" <?= $model->getIsDesktop() ? 'selected' : ''; ?>>Tour</option>
                 </select>
             </div>
             <div class="col-5 form-group">
                 <label for="name" class="mb-2">Nom du modèle</label>
-                <input type="text" name="name" class="form-control" required>
+                <input type="text" name="name" class="form-control" value="<?= $model->getName(); ?>">
             </div>
 
             <div class="row col-12 gap-4 justify-content-center">
@@ -155,7 +184,7 @@ if (!empty($_POST)) {
                 <div class="form-group">
                     <label for="description" class="mb-2">Description</label>
                     <textarea name="description" id="description" cols="30" rows="10"
-                        class="form-control mb-5"></textarea>
+                        class="form-control mb-5"><?= $model->getDescription(); ?></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-dark m-auto w-25">Valider</button>
