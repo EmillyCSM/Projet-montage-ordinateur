@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `commentDate` date DEFAULT NULL,
+  `commentDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `isRead` tinyint(1) DEFAULT NULL,
   `comment` text COLLATE utf8mb4_general_ci,
   `id_1` int NOT NULL,
@@ -110,9 +110,10 @@ CREATE TABLE IF NOT EXISTS `model` (
   `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `isDesktop` tinyint(1) DEFAULT NULL,
   `computerCreationNumber` int DEFAULT NULL,
-  `addDate` date DEFAULT NULL,
+  `addDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `description` text COLLATE utf8mb4_general_ci,
   `id_1` int NOT NULL,
+  `isArchived` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Model_AK` (`name`),
   KEY `Model_Users_1_FK` (`id_1`)
@@ -218,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `screen` (
 DROP TABLE IF EXISTS `stockhistory`;
 CREATE TABLE IF NOT EXISTS `stockhistory` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `creationDate` date DEFAULT NULL,
+  `creationDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `isEnter` tinyint(1) DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   `id_1` int DEFAULT NULL,

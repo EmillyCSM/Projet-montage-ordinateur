@@ -23,7 +23,7 @@ $motherBoards = [
         ->setIsSocket(1)
         ->setFormat('Micro ATX'),
     (new MotherBoard())
-        ->setName('OSLAN L- A520M-HVS')
+        ->setName('OSLAN L- 425-HVS')
         ->setBrand('OSLAN')
         ->setBuyingPrice(64.95)
         ->setQuantity(7)

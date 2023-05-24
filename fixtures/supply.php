@@ -55,8 +55,6 @@ foreach ($supplys as $supply) {
 
     $statement->execute();
 
-    $statement->execute();
-
     $statementPowerSupply->bindValue(':id', $connection->lastInsertId(), PDO::PARAM_INT);
     $statementPowerSupply->bindValue(':powerSupply', $supply->getPowerSupply(), PDO::PARAM_INT);
 
