@@ -7,6 +7,8 @@ $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
 $statement->execute();
 $resultsPieces = $statement->fetchAll();
 
+$piecesCompose = [];
+
 // En cas de modification 
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];
@@ -27,30 +29,41 @@ if (!empty($_GET['id'])) {
     $statementPieces->bindValue(':id', $id, PDO::PARAM_INT);
     $statementPieces->setFetchMode(PDO::FETCH_CLASS, Piece::class);
     $statementPieces->execute();
-    $piecesCompose = $statementPieces->fetchAll();
+    $results = $statementPieces->fetchAll();
+
+    // On affecte l'id du résultat à l'index de $piecesCompose
+    foreach ($results as $res) {
+        $piecesCompose[$res->getId()] = $res;
+    }
+} else {
+    $model = new Model();
 }
 
 if (!empty($_POST)) {
     $errors = false;
 
+    $model->setName($_POST['name']);
+    $model->setIsDesktop($_POST['isDesktop']);
+    $model->setDescription($_POST['description']);
     if (empty(trim($_POST['name']))) {
         $errors = true;
     }
     $piecesCompose = [];
     // Vérification que toutes les pièces ont été choisies
     foreach (Piece::CATEGORIES as $key => $category) {
+        $result = null;
         if (empty($_POST[$key])) {
             $errors = true;
+        } else {
+            $sqlPiece = "SELECT * FROM `piece` WHERE id = :id ;";
+            $statement = $connection->prepare($sqlPiece);
+            $statement->bindValue(':id', $_POST[$key], PDO::PARAM_INT);
+            $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
+            $statement->execute();
+            $result = $statement->fetch();
+            // Stockage de chaque pièce renseignée dans le tableau $piecesCompose
+            $piecesCompose[$result->getId()] = $result;
         }
-
-        $sqlPiece = "SELECT * FROM `piece` WHERE id = :id ;";
-        $statement = $connection->prepare($sqlPiece);
-        $statement->bindValue(':id', $_POST[$key], PDO::PARAM_INT);
-        $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
-        $statement->execute();
-        $result = $statement->fetch();
-        // Stockage de chaque pièce renseignée dans le tableau $piecesCompose
-        $piecesCompose[] = $result;
 
         if (!$result) {
             $errors = true; ?>
@@ -148,16 +161,16 @@ if (!empty($_POST)) {
                 <label for="isDesktop" class="mb-2">Type</label>
                 <select name="isDesktop" id="isDesktop" class="form-select" required>
                     <option value="">- Type -</option>
-                    <option value="0" <?= $model->getIsDesktop() ? 'selected' : ''; ?>>Ordinateur portable</option>
+                    <option value="0" <?= !$model->getIsDesktop() ? 'selected' : ''; ?>>Ordinateur portable</option>
 
-                    <option value="1" <?= $model->getIsDesktop() ? 'selected' : ''; ?>>Tour</option>
+                    <option value="1" <?= !$model->getIsDesktop() ? 'selected' : ''; ?>>Tour</option>
                 </select>
             </div>
             <div class="col-5 form-group">
                 <label for="name" class="mb-2">Nom du modèle</label>
                 <input type="text" name="name" class="form-control" value="<?= $model->getName(); ?>">
             </div>
-
+            <!-- Affichage des selects pour chaque pièce -->
             <div class="row col-12 gap-4 justify-content-center">
                 <?php
                 foreach (Piece::CATEGORIES as $key => $category) { ?>
@@ -169,13 +182,29 @@ if (!empty($_POST)) {
                             </option>
                             <?php foreach ($resultsPieces as $result) {
                                 if ($result->getCategory() == $key) { ?>
-                                    <option value="<?= $result->getId(); ?>"><?= $result->getName(); ?></option>
+                                    <option value="<?= $result->getId(); ?>" <?php if (isset($piecesCompose[$result->getId()])) {
+                                          echo 'selected';
+                                      } else {
+                                          echo '';
+                                      } ?>>
+                                        <?= $result->getName(); ?></option>
                                 <?php }
                             } ?>
                         </select>
                         <label for="<?= $key ?>_quantity" class="mb-2">Quantité <?= $category ?></label>
+                        <?php
+                        $value = 1;
+                        foreach ($piecesCompose as $idPiece => $piece) {
+                            if ($piece->getCategory() == $key) {
+                                $value = $piece->getQuantity();
+                            }
+                            if (isset($_POST[$key . '_quantity'])) {
+                                $value = $_POST[$key . '_quantity'];
+                            }
+                        }
+                        ?>
                         <input type="number" name="<?= $key ?>_quantity" id="<?= $key ?>_quantity" class="form-control mb-3"
-                            value="1" required>
+                            value="<?= $value; ?>" required>
                     </div>
                 <?php }
                 ?>
