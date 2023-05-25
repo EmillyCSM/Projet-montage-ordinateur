@@ -129,11 +129,6 @@ if (!empty($_POST)) {
         if (isset($_GET['id'])) {
             $id_model = $_GET['id'];
             // Suppression de la table COMPOSE les éléments de l'ID afin de les insérer à jour
-
-            /* *** Erreur lors de l'execution avec $connection->exec car je ne sais pas insérer l'id
-            $connection->exec('DELETE FROM `compose` WHERE id = :id'); 
-            Donc j'ai delete compose de la manière longue */
-
             $delete = "DELETE FROM `compose` WHERE id = :id";
             $statementDelete = $connection->prepare($delete);
             $statementDelete->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
@@ -190,8 +185,8 @@ if (!empty($_POST)) {
                             <?php foreach ($resultsPieces as $result) {
                                 if ($result->getCategory() == $key) { ?>
                                     <option value="<?= $result->getId(); ?>" <?php if (isset($piecesCompose[$result->getId()])) {
-                                          echo 'selected';
-                                      } ?>>
+                                        echo 'selected';
+                                    } ?>>
                                         <?= $result->getName(); ?></option>
                                 <?php }
                             } ?>

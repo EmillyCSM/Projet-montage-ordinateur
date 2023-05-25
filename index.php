@@ -10,6 +10,8 @@ $pages = [
     'model_form' => "Ajout/modification modèle",
     'model_details' => "page détail d'un modèle",
     'update_stock_piece' => "Stock pièce",
+    'list_models_for_mentors' => "page modèle pour menteur",
+    
 ];
 $page = 'home';
 
