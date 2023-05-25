@@ -147,7 +147,6 @@ if (!empty($_POST)) {
             $id = $_POST[$key];
 
             $quantity = $_POST[$key . '_quantity'];
-
             $add_compose = "INSERT INTO `compose`(`id`, `id_1`, `quantity`) VALUES (:id,:id_1,:quantity);";
             $statement = $connection->prepare($add_compose);
             $statement->bindValue(':id', $id_model, PDO::PARAM_INT);

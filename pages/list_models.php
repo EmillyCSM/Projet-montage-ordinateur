@@ -121,7 +121,9 @@ $results = $statement->fetchAll();
         <?php foreach ($results as $result) { ?>
             <tr>
                 <td>
-                    <?php echo $result->getName(); ?>
+                    <a href="?page=model_details&id=<?= $result->getId(); ?>">
+                        <?php echo $result->getName(); ?>
+                    </a>
                 </td>
                 <td>
                     <?= $result->getComputerCreationNumber(); ?>
