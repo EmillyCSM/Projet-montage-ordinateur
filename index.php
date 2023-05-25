@@ -9,6 +9,7 @@ $pages = [
     'list_models' => "Liste des modèles",
     'model_form' => "Ajout/modification modèle",
     'model_details' => "page détail d'un modèle",
+    
 ];
 $page = 'home';
 
