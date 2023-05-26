@@ -11,8 +11,6 @@ if (!isset($pageTitle)) {
     $pageTitle = "CLCD Concept";
 } ?>
 
-
-
 <!doctype html>
 <html lang="fr">
 
@@ -38,16 +36,49 @@ if (!isset($pageTitle)) {
                 <div class="collapse navbar-collapse d-lg-flex justify-content-sm-between pe-2" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="?page=list_pieces">Pièces</a>
+                            <?php
+                            if (isset($_SESSION['user']) && $_SESSION['user']->getIsConceptor() == 1) {
+                                ?>
+                                <a class="nav-link" href="?page=list_pieces">Pièces</a>
+                                <?php
+                            }
+                            ?>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=add_piece">Création pièce</a>
+                            <?php
+                            if (isset($_SESSION['user']) && $_SESSION['user']->getIsConceptor() == 1) {
+                                ?>
+                                <a class="nav-link" href="?page=add_piece">Création pièce</a>
+                                <?php
+                            }
+                            ?>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=list_models">Modèles</a>
+                            <?php
+                            if (isset($_SESSION['user']) && $_SESSION['user']->getIsConceptor() == 1) {
+                                ?>
+                                <a class="nav-link" href="?page=list_models">Modèles</a>
+                                <?php
+                            }
+                            ?>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?page=model_form">Création modèle</a>
+                            <?php
+                            if (isset($_SESSION['user']) && $_SESSION['user']->getIsConceptor() == 1) {
+                                ?>
+                                <a class="nav-link" href="?page=model_form">Création modèle</a>
+                                <?php
+                            }
+                            ?>
+                        </li>
+                        <li class="nav-item">
+                            <?php
+                            if (isset($_SESSION['user']) && $_SESSION['user']->getIsConceptor() == 0) {
+                                ?>
+                                <a class="nav-link" href="?page=list_model_for_mentors">Modèles à monter</a>
+                                <?php
+                            }
+                            ?>
                         </li>
                     </ul>
                     <?php
