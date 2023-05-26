@@ -7,14 +7,14 @@ $statement->setFetchMode(PDO::FETCH_CLASS, Model::class);
 $models = $statement->fetchAll();
 
 // requette pour recuperer les piece liée à chaque modèle
-$sqlPiece = "SELECT  piece.name, model.id, piece.id FROM `compose`
+$sqlPiece = "SELECT  piece.name, model.id, piece.id, piece.category FROM `compose`
 INNER JOIN `piece` ON compose.`id_1` = piece.id 
-INNER JOIN `model` ON model.id = compose.id ;";
+INNER JOIN `model` ON model.id = compose.id ;
+ ";
 $statement = $connection->prepare($sqlPiece);
 $statement->execute();
 $statement->setFetchMode(PDO::FETCH_CLASS, Piece::class);
 $pieces = $statement->fetchAll();
-
 ?>
 
 <section id="tab_model_mentor container">
@@ -34,11 +34,19 @@ $pieces = $statement->fetchAll();
                         <th scope="col">
                             Noms pièces
                         </th>
+                        <th scope="col">
+                            Catégorie
+                        </th>
                     </tr>
-                    <?php foreach ($pieces as $piece) { ?>
+                    <?php foreach ($pieces as $piece) { 
+                        ?>
+                        
                         <tr scope="row">
                             <td>
                                 <?= $piece->getName(); ?>
+                            </td>
+                            <td>
+                                <?= $piece->getCategory(); ?>
                             </td>
                         </tr>
                     <?php } ?>
