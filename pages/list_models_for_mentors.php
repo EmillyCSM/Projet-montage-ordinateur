@@ -38,9 +38,8 @@ $pieces = $statement->fetchAll();
                             Catégorie
                         </th>
                     </tr>
-                    <?php foreach ($pieces as $piece) { 
-                        ?>
-                        
+                    <?php foreach ($pieces as $piece){ ?>
+                    <!-- reste la gestion de l'affichage de pieceen fonction de l'id du model -->
                         <tr scope="row">
                             <td>
                                 <?= $piece->getName(); ?>
