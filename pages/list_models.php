@@ -1,4 +1,10 @@
 <?php
+
+if(isset($_GET['modelAdded']) && $_GET['modelAdded']=='succes'){ ?>
+<div class="alert alert-info" role="alert">
+            Connection avec succès !
+        </div> 
+<?php } 
 // Préparation de la requette BdD en fonction des filtres souhaitées
 $sqlModel = "SELECT model.*, SUM(piece.buyingPrice * compose.quantity) AS totalPrice FROM model 
 LEFT JOIN `compose` ON model.id = compose.id
@@ -114,7 +120,7 @@ $results = $statement->fetchAll();
             <th>Prix total des pièces utilisées</th>
             <th>Quantité en stock</th>
             <th>Date d'ajout</th>
-            <th>Nombre de commentaires</th> <!-- (avec une indication si des commentaires n'ont pas été lus)  -->
+     
             <th>Modifier modèle</th>
             <th>Archiver ou supprimer</th>
         </tr>
@@ -147,9 +153,6 @@ $results = $statement->fetchAll();
                 </td>
                 <td>
                     <?= $result->getAddDate(); ?>
-                </td>
-                <td>
-                    x
                 </td>
                 <td>
                     <a href="?page=model_form&id=<?php echo $result->getId(); ?>?>" class="btn btn-secondary p-1">

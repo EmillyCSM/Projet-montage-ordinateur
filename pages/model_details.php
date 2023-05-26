@@ -62,7 +62,7 @@ $statementUser->execute();
 <section id="model-details" class="container">
     <h2 class="mt-3 mb-5">Page Modèle</h2>
     <form method="post" class="row gap-4">
-        <div class="form-group col-5">
+        <div class="col-9">
             <h3> Nom modèle:
                 <?= $models->getName(); ?>
             </h3>
@@ -76,6 +76,11 @@ $statementUser->execute();
                 ;
                 ?>
             </h3>
+            <?php if ($_SESSION['user']->getIsConceptor() == 0) {
+                echo '<a href="?page=list_models&modelAdded=succes" class="btn btn-dark">Modèle monté</a>';
+            
+                ?>
+            <?php } ?>
         </div>
         <table>
             <tr>
