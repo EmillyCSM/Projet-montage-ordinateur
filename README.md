@@ -1,6 +1,6 @@
 # Projet-montage-ordinateur
 
-Vous trouverez dans la dossier [ressources](./ressources/) : 
+Vous trouverez dans le dossier [ressources](./ressources/) : 
  - Un export de la BdD vide [computer_assembly.sql](./ressources/computer_assembly.sql)
  - Le PDF de notre schéma MCD de la BdD
  - Le fichier Looping de notre shéma BdD
